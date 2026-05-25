@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url><loc>./404.html</loc></url>
+    <url><loc>./about/</loc></url>
+    <url><loc>./contacts/</loc></url>
+    <url><loc>./</loc></url>
+    <url><loc>./apartment/city-loft/</loc></url>
+    <url><loc>./apartment/penthouse/</loc></url>
+    <url><loc>./equipment/excavator/</loc></url>
+    <url><loc>./equipment/welder/</loc></url>
+    <url><loc>./house/family-home/</loc></url>
+    <url><loc>./house/modern-villa/</loc></url>
+    <url><loc>./land/commercial-plot/</loc></url>
+    <url><loc>./land/green-acres/</loc></url>
+    <url><loc>./vehicle/ford-transit/</loc></url>
+    <url><loc>./vehicle/toyota-camry/</loc></url>
+    
+</urlset>
