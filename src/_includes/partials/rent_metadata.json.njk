@@ -1,0 +1,11 @@
+[
+    {%- for post in collections.posts %}
+    {
+        "url": {{ post.url | url | dump | safe }},
+        "fileSlug": {{ post.fileSlug | url | dump | safe }},
+        {% for field in db_fields -%}
+            "{{ field }}": {{ post.data._pageData[field] | default(null) | dump | safe }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+]

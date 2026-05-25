@@ -1,0 +1,7 @@
+---
+permalink: "/assets/js/filter_rent.js"
+---
+{% set js %}
+{% include "../assets/js/filter_rent.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}

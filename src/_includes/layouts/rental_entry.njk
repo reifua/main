@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+{% from "macros/boolean_to_yes_no.njk" import booleanToYesNo %}
+{% from "macros/show_categorical_array.njk" import showCategoricalArray %}
+{% from "macros/placeholder_img.njk" import placeholderImg %}
+
+{% set typeKey = propertyType | reverseT %}
+{% set typeConfig = property_types[typeKey] %}
+{% if not typeConfig %}
+  {% set typeConfig = { "detailFields": { "details": ["propertyType", "price", "location", "availableNow"] } } %}
+{% endif %}
+
+<article class="max-w-5xl mx-auto">
+    <header class="mb-14">
+        <h1 class="text-3xl text-center font-bold leading-normal text-gray-900 mt-0 mb-3">{{ title }}</h1>
+        <h2 class="text-2xl text-center leading-normal text-gray-750 mt-0 mb-3">Локація: {{ location | normalizeLocation }}</h2>
+        {% if image %}
+            <a href="{{ image | url }}">
+            <img
+            class="w-full m-0 rounded-t lazy"
+            src="{% if image %}{{ image | url }}{% else %}{{ '/assets/img/no-image.svg' | url }}{% endif %}"
+            width="960"
+            height="500"
+            alt="{{ imageAlt }}">
+            </a>
+        {% else %}
+            <a href="{{ page.url | url }}">
+            {{ placeholderImg({ data: { propertyType: propertyType, administrativeArea: administrativeArea } }) }}
+            </a>
+        {% endif %}
+    </header>
+    <div id="content" class="prose text-gray-800 max-w-none">
+        {% if summary -%}
+            {% if summary | isArray %}
+                <ul>
+                {% for bulletpoint in summary %}
+                    <li>{{ bulletpoint | safe }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>{{ summary | safe }}</p>
+            {%- endif %}
+        {% endif %}
+        <table>
+            {% for sectionName, fieldList in typeConfig.detailFields %}
+              {% set sectionHasData = false %}
+              {% for fieldName in fieldList %}
+                {% if _pageData[fieldName] != null and _pageData[fieldName] !== "" and _pageData[fieldName] !== false %}
+                  {% set sectionHasData = true %}
+                {% endif %}
+              {% endfor %}
+              {% if sectionHasData %}
+              <tbody>
+              <th colspan="2" class="text-xl font-bold">{{ fields_schema.sections[sectionName] or sectionName }}</th>
+              {% for fieldName in fieldList %}
+                {% set field = fields_schema.fields[fieldName] %}
+                {% set value = _pageData[fieldName] %}
+                {% if field and value != null and value !== "" and value !== false %}
+                <tr>
+                    <td>{{ field.label }}</td>
+                    <td>
+                    {% if field.render === "boolean" %}
+                        {{ booleanToYesNo(value) }}
+                    {% elseif field.render === "translated" %}
+                        {{ value | t }}
+                    {% elseif field.render === "floor" %}
+                        {{ value }}{% if totalFloors %} / {{ totalFloors }}{% endif %}
+                    {% elseif field.render === "currency" %}
+                        {{ value }} грн/міс
+                    {% elseif field.render === "number" and field.suffix %}
+                        {{ value }}{{ field.suffix }}
+                    {% elseif field.render === "date" %}
+                        {{ value | readableDate }}
+                    {% elseif field.render === "array" %}
+                        {{ showCategoricalArray(value, "Н/Д") }}
+                    {% elseif field.render === "url" %}
+                        <a href="{{ value }}">{{ value | replace("/", "<wbr>/") | safe }}</a>
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                    </td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+              </tbody>
+              {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</article>

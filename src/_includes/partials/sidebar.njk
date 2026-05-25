@@ -1,0 +1,36 @@
+{% from "macros/filters.njk" import rangeSlider, radioGroup, selectField, checkboxField, yesNoGroup, multiSelectField %}
+
+{% for field in filters.fields %}
+<div data-show-if="{{ field.showIf | join(',') }}">
+  {% if field.type === "range" %}
+    {{ rangeSlider(field) }}
+  {% elseif field.type === "radio" %}
+    {% if field.dataSource %}
+      {% set opts = collections.posts | mapToDbField(field.dataSource) | flatten | compact | sort | uniq %}
+      {{ radioGroup(field, opts) }}
+    {% elseif field.options %}
+      {{ radioGroup(field, field.options) }}
+    {% endif %}
+  {% elseif field.type === "select" %}
+    {% if field.dataSource %}
+      {% set opts = collections.posts | mapToDbField(field.dataSource) | flatten | compact | sort | uniq %}
+      {{ selectField(field, opts) }}
+    {% endif %}
+  {% elseif field.type === "checkbox" %}
+    {{ checkboxField(field) }}
+  {% elseif field.type === "yesno" %}
+    {{ yesNoGroup(field) }}
+  {% elseif field.type === "multiselect" %}
+    {% if field.dataSource %}
+      {% set opts = collections.posts | mapToDbField(field.dataSource) | flatten | compact | sort | uniq %}
+      {{ multiSelectField(field, opts) }}
+    {% endif %}
+  {% endif %}
+</div>
+<br>
+{% endfor %}
+
+<div class="flex justify-between flex-wrap">
+    <button type="button" onclick="resetSidebarFilters(true); toggleFullScreenSidebar();" class="button float-left mt-9">Скинути фільтри</button>
+    <button type="button" onclick="toggleFullScreenSidebar()" class="button float-right mt-9 md:hidden">Застосувати</button>
+</div>

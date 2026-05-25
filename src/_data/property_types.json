@@ -1,0 +1,80 @@
+{
+  "house": {
+    "label": "Будинок",
+    "detailFields": {
+      "details": ["propertyType", "bedrooms", "bathrooms", "area", "landArea", "yearBuilt", "rooms"],
+      "amenities": ["furnished", "petsAllowed", "parking", "laundry", "hasAC", "stoveType", "hasTV", "heating", "alarm", "backupPower", "fireplace", "heatedFloor", "bathtub", "shower", "garage"],
+      "appliances": ["refrigerator", "dishwasher", "microwave", "washer", "dryer"],
+      "communications": ["internet", "tv", "electricity", "waterSupply", "sewage"],
+      "infrastructure": ["school", "busStop", "supermarket", "pharmacy"],
+      "territory": ["yard", "garden", "terrace", "basement", "attic", "bbqArea"],
+      "terms": ["price", "deposit", "leaseTerm", "availableNow", "availableFrom", "availableTo", "minLeaseMonths", "maxLeaseMonths"],
+      "location": ["location", "coordinates"],
+      "lessor": ["lessorName", "lessorPhone", "lessorPhoneOther", "lessorEmail", "lessorSocMed"]
+    },
+    "card": {
+      "primary": ["bedrooms", "bathrooms"],
+      "secondary": ["administrativeArea", "area"]
+    }
+  },
+  "apartment": {
+    "label": "Квартира",
+    "detailFields": {
+      "details": ["propertyType", "bedrooms", "bathrooms", "area", "floor", "yearBuilt", "residentialComplex", "rooms"],
+      "amenities": ["furnished", "petsAllowed", "parking", "laundry", "hasAC", "hasElevator", "balcony", "hasGym", "hasPool", "stoveType", "hasTV", "heating", "alarm", "backupPower", "fireplace", "heatedFloor", "bathtub", "shower"],
+      "appliances": ["refrigerator", "dishwasher", "microwave", "washer", "dryer"],
+      "communications": ["internet", "tv", "electricity", "waterSupply", "sewage"],
+      "infrastructure": ["school", "busStop", "supermarket", "pharmacy"],
+      "terms": ["price", "deposit", "leaseTerm", "availableNow", "availableFrom", "availableTo", "minLeaseMonths", "maxLeaseMonths"],
+      "location": ["location", "coordinates"],
+      "lessor": ["lessorName", "lessorPhone", "lessorPhoneOther", "lessorEmail", "lessorSocMed"]
+    },
+    "card": {
+      "primary": ["bedrooms", "bathrooms"],
+      "secondary": ["administrativeArea", "area"]
+    }
+  },
+  "land": {
+    "label": "Земельна ділянка",
+    "detailFields": {
+      "details": ["propertyType", "area", "landType", "shape", "permittedUse", "buildingPermit", "fencing"],
+      "communications": ["electricity", "gas", "waterSupply", "sewage", "heating", "roadAccess"],
+      "infrastructure": ["school", "busStop", "supermarket", "pharmacy"],
+      "terms": ["price", "deposit", "leaseTerm", "availableNow", "availableFrom", "availableTo", "minLeaseMonths", "maxLeaseMonths"],
+      "location": ["location", "coordinates"],
+      "lessor": ["lessorName", "lessorPhone", "lessorPhoneOther", "lessorEmail", "lessorSocMed"]
+    },
+    "card": {
+      "primary": ["area"],
+      "secondary": ["administrativeArea", "permittedUse"]
+    }
+  },
+  "vehicle": {
+    "label": "Транспортний засіб",
+    "detailFields": {
+      "details": ["propertyType", "brand", "model", "year", "mileage", "fuelType", "transmission", "engineCapacity", "color", "seats", "doors", "condition"],
+      "amenities": ["airConditioning", "gps", "parkingSensors", "rearCamera", "bluetooth", "roofRack", "towbar", "winterTires"],
+      "terms": ["price", "deposit", "leaseTerm", "availableNow", "availableFrom", "availableTo", "minLeaseMonths", "maxLeaseMonths"],
+      "location": ["location", "coordinates"],
+      "lessor": ["lessorName", "lessorPhone", "lessorPhoneOther", "lessorEmail", "lessorSocMed"]
+    },
+    "card": {
+      "primary": ["brand", "model"],
+      "secondary": ["year", "mileage"]
+    }
+  },
+  "equipment": {
+    "label": "Обладнання",
+    "detailFields": {
+      "details": ["propertyType", "brand", "model", "year", "condition", "weight", "powerOutput", "operatingHours", "fuelType", "dimensions", "serialNumber"],
+      "amenities": ["trailer", "additionalAttachments", "documentation", "lastInspectionDate"],
+      "terms": ["price", "deposit", "leaseTerm", "availableNow", "availableFrom", "availableTo", "minLeaseMonths", "maxLeaseMonths"],
+      "location": ["location", "coordinates"],
+      "lessor": ["lessorName", "lessorPhone", "lessorPhoneOther", "lessorEmail", "lessorSocMed"]
+    },
+    "card": {
+      "primary": ["brand", "model"],
+      "secondary": ["year", "operatingHours"]
+    }
+  }
+}

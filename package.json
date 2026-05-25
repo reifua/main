@@ -1,0 +1,37 @@
+{
+	"name": "reifua",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"clean": "rimraf dist",
+		"start": "npm run serve",
+		"serve": "npm run clean && cross-env NODE_ENV=development eleventy --serve",
+		"watch": "npm run clean && cross-env NODE_ENV=development eleventy --watch",
+		"build": "npm run clean && cross-env NODE_ENV=production eleventy",
+		"debug": "DEBUG=Eleventy* npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/reifua/main.git"
+	},
+	"author": "Vladislav K.",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/reifua/main/issues"
+	},
+	"homepage": "https://github.com/reifua/main#readme",
+	"devDependencies": {
+		"@11ty/eleventy": "^1.0.2",
+		"@tailwindcss/typography": "^0.3.1",
+		"cross-env": "^7.0.3",
+		"html-minifier": "^4.0.0",
+		"luxon": "^2.5.2",
+		"rimraf": "^3.0.2",
+		"terser": "^4.8.1"
+	},
+	"dependencies": {
+		"@11ty/eleventy-upgrade-help": "^1.0.1",
+		"@tailwindcss/forms": "^0.2.1",
+		"eleventy-plugin-tailwindcss": "github:dafiulh/eleventy-plugin-tailwindcss"
+	}
+}

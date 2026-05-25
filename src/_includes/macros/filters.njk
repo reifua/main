@@ -1,0 +1,83 @@
+{% macro rangeSlider(config) %}
+<fieldset>
+    <legend>{{ config.label }}</legend>
+    <div class="rental-filter range-slider flex" name="{{ config.name }}"
+         id="{{ config.name }}Slider"
+         data-min="{{ config.min }}" data-max="{{ config.max }}"
+         data-step="{{ config.step }}"
+         data-start-min="{{ config.startMin }}" data-start-max="{{ config.startMax }}"
+         data-pips-step="{{ config.pipsStep }}">
+        {{ config.startMin }}<input type="range" min="{{ config.min }}" max="{{ config.max }}" value="{{ config.startMax }}">{{ config.startMax }}
+    </div>
+</fieldset>
+{% endmacro %}
+
+{% macro radioGroup(config, options) %}
+<fieldset class="flex flex-col">
+    <legend>{{ config.label }}</legend>
+    {% for opt in options %}
+    {% set val = opt | reverseT | slugify %}
+    <label class="inline-flex mt-3">
+        <input type="radio"
+               name="{{ config.name }}"
+               value="{{ val }}"
+               id="{{ config.name }}-{{ val }}-radio"
+               onclick="updatePostGrid(this)"
+               class="rental-filter form-radio h-5 w-5 text-gray-600 transition duration-100 ease-in-out shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed">
+        <span class="ml-2 text-gray-700">{{ opt | t }}</span>
+    </label>
+    {% endfor %}
+</fieldset>
+{% endmacro %}
+
+{% macro selectField(config, options) %}
+<fieldset class="mb-3 xl:w-96">
+    <legend class="form-check-label inline-block text-gray-800" id="{{ config.name }}SelectionLegend">
+      {{ config.label }}
+    </legend>
+    <select id="{{ config.name }}Selection" name="{{ config.name }}" onchange="updatePostGrid(this)" class="rental-filter form-select
+      block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300 rounded transition ease-in-out m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      aria-labelledby="{{ config.name }}SelectionLegend">
+        <option value="" selected>Будь-яка</option>
+        {% for opt in options %}
+        <option value="{{ opt | reverseT | slugify }}">{{ opt | t }}</option>
+        {% endfor %}
+    </select>
+</fieldset>
+{% endmacro %}
+
+{% macro checkboxField(config) %}
+<label class="inline-flex items-center mt-3">
+    <input type="checkbox" name="{{ config.name }}" value="true"
+    onclick="updatePostGrid(this)" class="rental-filter form-checkbox h-5 w-5 text-gray-600">
+    <span class="ml-2 text-gray-700">{{ config.label }}</span>
+</label>
+{% endmacro %}
+
+{% macro yesNoGroup(config) %}
+<fieldset class="flex flex-col">
+    <legend>{{ config.label }}</legend>
+    <label class="inline-flex mt-3">
+        <input type="radio" name="{{ config.name }}" value="true" onclick="updatePostGrid(this)" class="rental-filter form-radio h-5 w-5 text-gray-600">
+        <span class="ml-2 text-gray-700">Так</span>
+    </label>
+    <label class="inline-flex mt-3">
+        <input type="radio" name="{{ config.name }}" value="false" onclick="updatePostGrid(this)" class="rental-filter form-radio h-5 w-5 text-gray-600">
+        <span class="ml-2 text-gray-700">Ні</span>
+    </label>
+</fieldset>
+{% endmacro %}
+
+{% macro multiSelectField(config, options) %}
+<fieldset class="block text-left">
+    <legend>{{ config.label }} (Ctrl+Клік для вибору кількох)</legend>
+    <select name="{{ config.name }}" id="{{ config.name }}-multi-select" onchange="updatePostGrid(this)" class="rental-filter form-multiselect block w-full mt-1 border-2"
+        aria-label="{{ config.label }}" multiple>
+       {% for opt in options %}
+           <option value="{{ opt | reverseT | slugify }}">{{ opt | t }}</option>
+       {% endfor %}
+     </select>
+</fieldset>
+{% endmacro %}

@@ -1,0 +1,29 @@
+{% macro placeholderImg(post) %}
+{% set colors = {
+  "house": "#F0D7DF",
+  "apartment": "#D7E8F0",
+  "land": "#D7F0D7",
+  "vehicle": "#F0E8D7",
+  "equipment": "#E8D7F0"
+} %}
+{% set typeKey = post.data.propertyType | reverseT %}
+{% set bgColor = colors[typeKey] or "#E0E0E0" %}
+{% set typeLabel = post.data.propertyType | t or "" %}
+{% set location = post.data.administrativeArea or "" %}
+<svg class="w-full m-0 rounded-t max-h-72 object-cover object-top" width="960" height="500" viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <rect width="100%" height="100%" fill="{{ bgColor }}"/>
+  <g font-family="sans-serif" font-size="28" fill="#555" text-anchor="middle">
+    <text x="480" y="220">
+      <tspan x="480" dy="0">Здається</tspan>
+    </text>
+    <text x="480" y="270" font-size="36" font-weight="bold" fill="#333">
+      <tspan x="480" dy="0">{{ typeLabel or "нерухомість" }}</tspan>
+    </text>
+    {% if location %}
+    <text x="480" y="320">
+      <tspan x="480" dy="0">{{ location }}</tspan>
+    </text>
+    {% endif %}
+  </g>
+</svg>
+{% endmacro %}

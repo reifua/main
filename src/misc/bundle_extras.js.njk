@@ -1,0 +1,24 @@
+---
+permalink: "/assets/js/bundle_extras.js"
+---
+{% set js %}
+{% set fieldNames = [] %}
+var PROPERTY_TYPES = {{ property_types | dump | safe }};
+var FIELDS_SCHEMA = {{ fields_schema | dump | safe }};
+var VALUE_MAP = {};
+var REVERSE_MAP = {};
+(function () {
+  var raw = {{ i18n | dump | safe }};
+  var skip = {"true":1,"false":1,"Yes":1,"No":1,"N/A":1,"Any":1};
+  for (var k in raw) {
+    if (!skip[k]) VALUE_MAP[k] = raw[k];
+    REVERSE_MAP[raw[k]] = k;
+  }
+})();
+{% include "../assets/js/card.js" %}
+{% include "../assets/js/search.js" %}
+{% include "../assets/js/nouislider.js" %}
+{% include "../assets/js/dual_sliders_conf.js" %}
+{% include "../assets/js/sidebar_filters.js" %}
+{% endset %}
+{{ js | minifyJs | safe }}
