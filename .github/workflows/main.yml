@@ -1,16 +1,17 @@
-name: Build Eleventy
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-24.04
     permissions:
-      contents: write
-
+      contents: read
+      id-token: write
+      pages: write
     steps:
       - uses: actions/checkout@v4
 
@@ -21,17 +22,28 @@ jobs:
           cache: 'npm'
 
       - name: Reconfigure git to use HTTP authentication
-        run: >
-          git config --global url."https://github.com/".insteadOf
-          ssh://git@github.com/
+        run: git config --global url."https://github.com/".insteadOf ssh://git@github.com/
 
       - name: Install dependencies & build
         run: |
           npm ci
-          npm run build          
+          npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          publish_dir: ./dist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
