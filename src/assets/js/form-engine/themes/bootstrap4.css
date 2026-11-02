@@ -1,0 +1,184 @@
+/* FormEngine skin for the Bootstrap 4 theme.
+ *
+ * Lives with its theme (themes/bootstrap4.js) so the theme is markup + skin,
+ * and any site that renders `theme: bootstrap4` gets these rules with no
+ * site-side wiring. shell.js inlines this file into the baked fragment, so it
+ * ships with the form and needs no <link>.
+ *
+ * Only hooks the engine emits are touched here; the rest of a control's look
+ * comes from the site's Bootstrap stylesheet, exactly as before.
+ */
+
+[x-cloak] { display: none !important; }
+.step-indicator { margin-bottom: 1rem; }
+.step-indicator .step-number { width: 36px; height: 36px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s; }
+.step-indicator .step-dot { width: 10px; height: 10px; }
+.step-title { font-weight: 600; color: #212529; }
+.field-depends-hidden { display: none; }
+.form-group.is-invalid { border-left: 3px solid #dc3545; padding-left: 8px; }
+.form-group.is-valid { border-left: 3px solid #28a745; padding-left: 8px; }
+.input-group .form-control.is-valid,
+.input-group .form-control.is-invalid {
+  position: relative;
+  z-index: 3;
+}
+.input-group .custom-select.is-valid,
+.input-group .custom-select.is-invalid {
+  z-index: 3;
+}
+.file-previews { display: flex; flex-direction: column; gap: 0.75rem; }
+.file-preview { max-width: 100%; }
+.file-preview-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem; border: 1px solid transparent; border-radius: 4px; }
+.file-preview-row-valid { border-color: #28a745; }
+.file-preview-row-invalid { border-color: #dc3545; }
+.file-thumb { position: relative; overflow: hidden; border-radius: 4px; border: 1px solid #dee2e6; flex-shrink: 0; }
+.file-badge-compress { position: absolute; top: 2px; left: 2px; background: #ffc107; color: #212529; font-size: 0.65rem; font-weight: 600; padding: 1px 5px; border-radius: 3px; z-index: 2; line-height: 1.3; }
+.file-preview-notice { margin-top: 0.5rem; padding: 0.5rem 0.65rem; background: #fff3cd; border: 1px solid #ffe69c; border-radius: 4px; color: #664d03; font-size: 0.8rem; }
+.file-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.file-thumb-fallback { display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+.file-caption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.file-thumb .close { background: rgba(255,255,255,0.9); border-radius: 50%; width: 22px; height: 22px; line-height: 20px; text-align: center; font-size: 1rem; opacity: 1; padding: 0; border: 1px solid #dee2e6; }
+.file-thumb .close:hover { background: #fff; }
+.file-list-info { flex: 1; min-width: 0; font-size: 0.8rem; }
+.file-list-info-row { display: flex; flex-wrap: wrap; gap: 0.35rem; line-height: 1.35; }
+.file-list-info-label { color: #6c757d; flex-shrink: 0; }
+.file-list-info-value { color: #212529; word-break: break-word; font-weight: 500; min-width: 0; }
+@media (max-width: 767.98px) {
+  .file-list-info-row { flex-direction: column; align-items: flex-start; gap: 0; }
+  .file-list-info-label { min-width: 0; }
+  .file-list-info-value { width: 100%; }
+}
+.file-list-info-value-over { color: #dc3545 !important; }
+.custom-file-input ~ .custom-file-label::after { content: "Огляд"; }
+select.form-control.is-valid,
+select.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.475rem) center;
+}
+.autocomplete-search { padding-right: 2.5rem; }
+.autocomplete-search.form-control.is-invalid,
+.autocomplete-search.form-control.is-valid {
+  padding-right: calc(1.5em + 2.5rem) !important;
+}
+.autocomplete-search.form-control.is-invalid ~ .btn-clear,
+.autocomplete-search.form-control.is-valid ~ .btn-clear {
+  right: 1.65rem;
+}
+.autocomplete-search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  color: #6c757d;
+  pointer-events: none;
+  line-height: 0;
+}
+.autocomplete-search.form-control.is-invalid ~ .autocomplete-search-icon,
+.autocomplete-search.form-control.is-valid ~ .autocomplete-search-icon {
+  right: 2rem;
+}
+.autocomplete-search-icon[hidden],
+.autocomplete-clear[hidden] {
+  display: none !important;
+}
+.location-search { padding-right: 2.5rem; }
+/*.location-search.form-control.is-invalid,
+.location-search.form-control.is-valid {
+  padding-right: calc(1.5em + 2.5rem) !important;
+}*/
+.location-search.form-control.is-invalid ~ .btn-clear,
+.location-search.form-control.is-valid ~ .btn-clear {
+  right: 1.65rem;
+}
+.location-search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  color: #6c757d;
+  pointer-events: none;
+  line-height: 0;
+}
+.location-search.form-control.is-invalid ~ .location-search-icon,
+.location-search.form-control.is-valid ~ .location-search-icon {
+  right: 2rem;
+}
+.text-input-wrapper { position: relative; }
+.input-group > .text-input-wrapper { flex: 1 1 auto; width: 1%; min-width: 0; }
+.input-group > .text-input-wrapper > .form-control { width: 100%; }
+.input-group > .text-input-wrapper > .form-control { border-radius: 0; }
+.input-group > .text-input-wrapper:first-child > .form-control { border-left-radius: .25rem; }
+.input-group > .text-input-wrapper:last-child > .form-control { border-right-radius: .25rem; }
+.text-input-wrapper > .form-control.is-invalid,
+.text-input-wrapper > .form-control.is-valid {
+  padding-right: calc(1.5em + 1.65rem) !important;
+}
+.text-input-wrapper > .form-control.is-invalid ~ .btn-clear,
+.text-input-wrapper > .form-control.is-valid ~ .btn-clear {
+  right: 1.65rem;
+}
+textarea.form-control ~ .btn-clear {
+  top: 10px;
+  transform: none;
+}
+textarea.form-control {
+  resize: vertical;
+  min-height: calc(1.5em + .75rem + 2px);
+}
+.text-input-wrapper > .custom-file { width: 100%; padding-right: 2rem; }
+.input-group > .text-input-wrapper > .custom-file { border-radius: 0; }
+.input-group > .text-input-wrapper:first-child > .custom-file { border-left-radius: .25rem; }
+.input-group > .text-input-wrapper:last-child > .custom-file { border-right-radius: .25rem; }
+.text-input-wrapper > .custom-file.is-invalid .custom-file-label {
+  border-color: #dc3545;
+}
+.text-input-wrapper > .custom-file.is-invalid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(0.375em + .1875rem + 4.2rem);
+  transform: translateY(-50%);
+  width: calc(.75em + .375rem);
+  height: calc(.75em + .375rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+.text-input-wrapper > .custom-file.is-valid .custom-file-label {
+  border-color: #28a745;
+}
+.text-input-wrapper > .custom-file.is-valid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(0.375em + .1875rem + 4.2rem);
+  transform: translateY(-50%);
+  width: calc(.75em + .375rem);
+  height: calc(.75em + .375rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+.text-input-wrapper > .custom-file.is-invalid .custom-file-input:focus ~ .custom-file-label {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 .2rem rgba(220,53,69,.25);
+}
+.text-input-wrapper > .custom-file.is-valid .custom-file-input:focus ~ .custom-file-label {
+  border-color: #28a745;
+  box-shadow: 0 0 0 .2rem rgba(40,167,69,.25);
+}
+.form-group.is-invalid .text-input-wrapper > .custom-file,
+.form-group.is-valid .text-input-wrapper > .custom-file {
+  padding-right: calc(1.5em + 5.85rem);
+}
+.form-group.is-invalid .text-input-wrapper > .btn-clear,
+.form-group.is-valid .text-input-wrapper > .btn-clear {
+  right: 5.85rem;
+}

@@ -15,8 +15,23 @@ module.exports = (config) => {
   config.addPassthroughCopy({ 'src/posts/img/**/*': 'assets/img/' });
 
   config.addPassthroughCopy('src/assets/svg/');
+  config.addPassthroughCopy('src/assets/data/');
+
+  // Leaflet marker/layer sprites. leaflet.js and leaflet.css are inlined into
+  // the baked form fragment (see lib/form-engine.js), but the CSS references
+  // url(images/...) and doInitMap sets L.Icon.Default.imagePath to
+  // /assets/css/images/, so the PNGs have to ship as static files.
+  config.addPassthroughCopy('src/assets/css/images/**/*');
+
+  // FormEngine runtime: ES modules loaded directly by the baked page via
+  // <script type="module">, so the directory layout has to survive as-is.
+  // The single entry is assets/js/form-engine/app.js.
+  config.addPassthroughCopy('src/assets/js/form-engine');
 
   config.addWatchTarget("src/assets/js/");
+
+  // Bake forms/<name>.yml into fragments and expose them as {% formApp "name" %}.
+  require('./lib/form-engine')(config);
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');

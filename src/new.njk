@@ -1,0 +1,11 @@
+---
+layout: default
+title: Демонстраційна форма
+description: Приклад форми, запеченої рушієм FormEngine з src/_data/demo.yml.
+---
+
+<div class="mx-auto w-full max-w-2xl">
+  <h1 class="mb-2 text-2xl font-bold md:text-3xl">{{ title }}</h1>
+  <p class="mb-5 text-lg text-gray-600">Приклад форми, запеченої рушієм FormEngine з <code>src/_data/demo.yml</code>. Заповніть поля та надішліть — реальні дані нікуди не надсилаються.</p>
+  {% formApp "demo" %}
+</div>
