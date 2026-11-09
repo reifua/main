@@ -40,7 +40,7 @@ export function bootModal(root, opts = {}) {
   const form = FormRender.mount(app, config);
   const controller = makeController(config);
   const theme = FormRender.theme(config.theme || 'bootstrap4');
-  const binder = bindForm(form, controller, { colClass: theme.colClass });
+  const binder = bindForm(form, controller, { classes: theme.validationClasses, colClass: theme.colClass });
 
   const Captcha = opts.Captcha !== undefined
     ? opts.Captcha

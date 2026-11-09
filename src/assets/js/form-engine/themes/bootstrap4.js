@@ -350,9 +350,9 @@ function autocomplete(field, ctx) {
     ` data-autocomplete-search="${attr(field.name)}">
       ${searchIcon('autocomplete-search-icon')}
       <button type="button" class="btn-clear autocomplete-clear" title="Очистити поле" data-autocomplete-clear="${attr(field.name)}" hidden>&times;</button>
-      <div class="dropdown-menu show position-absolute w-100"` +
+      <div class="dropdown-menu position-absolute w-100"` +
     ` style="max-height: 250px; overflow-y: auto; z-index: 1050;" data-autocomplete-dropdown="${attr(field.name)}">
-        <div class="dropdown-item text-muted" style="pointer-events: none;" data-autocomplete-noresults="${attr(field.name)}"></div>
+        <div class="dropdown-item dropdown-item-empty" style="pointer-events: none;" data-autocomplete-noresults="${attr(field.name)}"></div>
       </div>
     </div>`;
 
@@ -452,7 +452,7 @@ function widgetMap(field, ctx) {
     </div>
     <div class="map-marker-info-body">
       <div class="map-marker-info-loading"><span class="spinner-border spinner-border-sm"></span> Визначаю адресу&hellip;</div>
-      <div class="map-marker-info-address text-muted font-italic">Адресу не вдалося визначити</div>
+      <div class="map-marker-info-address text-muted font-italic" data-map-fallback>Адресу не вдалося визначити</div>
       <div class="map-marker-info-address">Адреса: <span data-map-address="${attr(field.name)}"></span></div>
       <div class="map-marker-info-coords">Координати: <span data-map-coords="${attr(field.name)}"></span></div>
     </div>
@@ -501,9 +501,9 @@ function widgetLocation(field, ctx) {
       ` data-location-search="${sub.name}" data-location-root="${root}">
       ${searchIcon('location-search-icon')}
       <button type="button" class="btn-clear" title="Очистити поле" data-location-clear="${sub.name}" hidden>&times;</button>
-      <div class="dropdown-menu show position-absolute w-100"` +
+      <div class="dropdown-menu position-absolute w-100"` +
       ` style="max-height: 250px; overflow-y: auto; z-index: 1050;" data-location-dropdown="${sub.name}">
-        <div class="dropdown-item text-muted" style="pointer-events: none;"></div>
+        <div class="dropdown-item dropdown-item-empty" style="pointer-events: none;"></div>
       </div>
     </div>`;
 
@@ -528,7 +528,7 @@ function widgetLocation(field, ctx) {
       ${field.label ? `<h6 class="card-title">${labelBody(field.label, ctx)}</h6>` : ''}
       ${field.helper ? `<small class="form-text text-muted mb-2">${raw(field.helper)}</small>` : ''}
       ${fields}
-      <div class="mt-2" hidden><div class="card bg-light mb-0"><div class="card-body py-2"><small class="text-muted d-block" data-location-summary="${leaf}"></small></div></div></div>
+      <div class="mt-2" data-location-summary-panel hidden><div class="card bg-light mb-0"><div class="card-body py-2"><small class="text-muted d-block" data-location-summary="${leaf}"></small></div></div></div>
     </div>
   </div>`, ctx);
 }
@@ -723,7 +723,7 @@ function renderChrome(opts) {
   });
 
   const top =
-    `<div class="d-flex justify-content-between align-items-center flex-wrap step-indicator">\n` +
+    `<div class="d-flex justify-content-between align-items-center flex-wrap step-indicator" data-step-indicator>\n` +
     `  ${indicator.join('\n  ')}\n` +
     `</div>\n` +
     `\n` +
@@ -825,6 +825,9 @@ export const bootstrap4 = {
   controlAttrs,
   addon,
   colClass: (string) => string || '',
+  // State classes the binder toggles and the page glue reuses, so a third
+  // theme can supply its own vocabulary without patching the glue (G-2).
+  validationClasses: { invalid: 'is-invalid', valid: 'is-valid' },
   chrome: renderChrome,
   modals: renderModals,
   navTokens: NAV_TOKENS,

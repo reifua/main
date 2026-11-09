@@ -10,7 +10,8 @@
 		"build": "npm run clean && cross-env NODE_ENV=production eleventy",
 		"debug": "DEBUG=Eleventy* npm run build",
 		"test": "node --test --test-force-exit --test-timeout=60000 --test-concurrency=2 \"test/*.test.mjs\"",
-		"validate": "node _form-engine/tools/validate-config.mjs src/_data/add-property.yml --strict"
+		"validate": "node _form-engine/tools/validate-config.mjs src/_data/add-property.yml --strict",
+		"engine:manifest": "node _form-engine/tools/engine-manifest.mjs"
 	},
 	"repository": {
 		"type": "git",

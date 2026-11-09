@@ -14,6 +14,13 @@
 .step-indicator .step-number { width: 36px; height: 36px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s; }
 .step-indicator .step-dot { width: 10px; height: 10px; }
 .step-title { font-weight: 600; color: #212529; }
+/* ---- dropdown result hooks the glue builds ------------------------------
+ * page-form.js builds results as `dropdown-item` and marks the secondary
+ * text with these semantic hooks; do not swap them back for Bootstrap
+ * utilities (text-muted), a third theme has no such classes. */
+.dropdown-item-info { color: #6c757d; }
+.dropdown-item-tail { color: #6c757d; font-size: 80%; }
+.dropdown-item-empty { color: #6c757d; }
 .field-depends-hidden { display: none; }
 .form-group.is-invalid { border-left: 3px solid #dc3545; padding-left: 8px; }
 .form-group.is-valid { border-left: 3px solid #28a745; padding-left: 8px; }
@@ -35,10 +42,10 @@
 .file-badge-compress { position: absolute; top: 2px; left: 2px; background: #ffc107; color: #212529; font-size: 0.65rem; font-weight: 600; padding: 1px 5px; border-radius: 3px; z-index: 2; line-height: 1.3; }
 .file-preview-notice { margin-top: 0.5rem; padding: 0.5rem 0.65rem; background: #fff3cd; border: 1px solid #ffe69c; border-radius: 4px; color: #664d03; font-size: 0.8rem; }
 .file-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.file-thumb-fallback { display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+.file-thumb-fallback { display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; color: #4b5563; border-radius: 4px; }
 .file-caption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.file-thumb .close { background: rgba(255,255,255,0.9); border-radius: 50%; width: 22px; height: 22px; line-height: 20px; text-align: center; font-size: 1rem; opacity: 1; padding: 0; border: 1px solid #dee2e6; }
-.file-thumb .close:hover { background: #fff; }
+.file-thumb .file-remove { position: absolute; top: 1px; right: 1px; background: rgba(255,255,255,0.9); border-radius: 50%; width: 22px; height: 22px; line-height: 20px; text-align: center; font-size: 1rem; font-weight: 700; color: #000; opacity: 1; padding: 0; border: 1px solid #dee2e6; }
+.file-thumb .file-remove:hover { background: #fff; }
 .file-list-info { flex: 1; min-width: 0; font-size: 0.8rem; }
 .file-list-info-row { display: flex; flex-wrap: wrap; gap: 0.35rem; line-height: 1.35; }
 .file-list-info-label { color: #6c757d; flex-shrink: 0; }
@@ -181,4 +188,20 @@ textarea.form-control {
 .form-group.is-invalid .text-input-wrapper > .btn-clear,
 .form-group.is-valid .text-input-wrapper > .btn-clear {
   right: 5.85rem;
+}
+
+/* :focus-visible for accessibility - visible focus ring for keyboard navigation */
+.btn-clear:focus-visible,
+.file-remove:focus-visible,
+.step-number:focus-visible,
+.form-control:focus-visible,
+.custom-file-input:focus-valid ~ .custom-file-label,
+.custom-file-input:focus-visible ~ .custom-file-label {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+/* Ensure step-number focus is visible when it receives focus via tabindex=-1 */
+.step-number:focus-visible {
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.4);
 }

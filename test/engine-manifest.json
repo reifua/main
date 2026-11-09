@@ -1,0 +1,30 @@
+{
+  "engine": "src/assets/js/form-engine",
+  "normalization": "crlf-to-lf",
+  "algorithm": "sha256",
+  "files": {
+    "app.js": "e9012d69b3305900ca7158073dfdee7c4f183f75c144bf107ac106bcfc0ce551",
+    "binder.js": "2fb3cd1d1f1551303819399b6f24142a4dd6d92fda3e3a310b7cdc0965e830aa",
+    "captcha.js": "63d7f4a4c5e92d64fb05daf39a6cfb15c0f66857423e13072fd4fa1eb9c785e5",
+    "conditions.js": "4a048ca62693d855a2a94ed32b988c438cef41f1ed2e96c300c3bc545a08922c",
+    "controller.js": "b3f056ee23ba4742900a8125954a36486f710205d38d046c4d082f0e59ab6035",
+    "data.js": "d9be627ded4babdb56a1cc2a554fae715833f126a54387d03374eadb8e2565fa",
+    "html.js": "ddc1860c0afd230cd29f2ff782c63aa268af5302da6f491cd9709eb1a69977c7",
+    "language.js": "cf166e81fa013aab6dea5e562179002fc9db8b5ae5735e33780770653b0d01cf",
+    "layout.js": "fe84128bee5b72a70dce3eb263a6bd1e4bd115e99b68d32e1a4f77f731697546",
+    "modal-form.js": "7db11de0602140df2a555bf2869c30ed468129da6a5bd2212616e16fcf516ea6",
+    "modals.js": "577867f0b7bb0c1afa93fea7c360dd1032916e072a762bc1519f1227a0729ded",
+    "model.js": "1df3d0fbbef1066ef98aa162dfaacc55fb0105da6f8809746fdea670674fe7ed",
+    "package.json": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a",
+    "page-form.js": "c7714f45ab94e75b4ea15b05728715730277552141102d69c025259218d71060",
+    "render.js": "ca953cdecc5390627f0696513c1cca582d438f1557c8aba4f86d7aabeb0c0f51",
+    "shell.js": "0b49dfe1bf6d5e49e4a0e556257e3041ef630dc12dbe3d0416f19746f023fbc4",
+    "submit.js": "ae0e4bd2db96829bb98c9ed90b809480b50240c76e28d18bc8588a97ffaf8af2",
+    "themes/bootstrap4.css": "5d7465b9fef7439dfd810682553bcd012e3e16facadae126fa673fcfb86790ab",
+    "themes/bootstrap4.js": "cb3ccf78fb0e775fab6821c60c08f2b46700b3791e2081751d3704a50a9ddd03",
+    "themes/tailwind.css": "9966495955a0891c4963e468ab16b88b58162afef8660e86ecd8b9c8c5e1962e",
+    "themes/tailwind.js": "ec2a3ea8cc871aafa0d3716d1bac6cda264834fddf81964541981f29353bec3c",
+    "themes/themeStyle.js": "b3ef432e9e0083cce50109199fa01fbfe81f61580d6b18edba9affc020f7d1cb",
+    "validation.js": "916bd6278a7136f8086ad1e87ff8b34df56cb7a852593a119e72b5b3cf579b5d"
+  }
+}

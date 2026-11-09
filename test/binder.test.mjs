@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import { makeController } from '../src/assets/js/form-engine/controller.js';
 import { bindForm } from '../src/assets/js/form-engine/binder.js';
+import { bootstrap4 } from '../src/assets/js/form-engine/themes/bootstrap4.js';
 import { tailwind } from '../src/assets/js/form-engine/themes/tailwind.js';
 
 // ----------------------------------------------------------- element shim ----
@@ -30,6 +31,9 @@ function el(tag, attrs = {}) {
     },
     setAttribute(name, value) {
       this._attrs[name] = String(value);
+    },
+    removeAttribute(name) {
+      delete this._attrs[name];
     },
     addEventListener(type, fn) {
       (this.handlers[type] = this.handlers[type] || []).push(fn);
@@ -389,6 +393,12 @@ test('the invalid/valid classes are theme-configurable, bootstrap by default', (
     if (control === parts.reason) continue;
     assert.equal(control.classList.contains('border-red-500'), false);
   }
+});
+
+test('both built-in themes expose the same validation class vocabulary', () => {
+  assert.deepEqual(bootstrap4.validationClasses, { invalid: 'is-invalid', valid: 'is-valid' });
+  assert.deepEqual(tailwind.validationClasses, bootstrap4.validationClasses,
+    'the glue passes theme.validationClasses to bindForm, so the themes must agree');
 });
 
 test('a data-depends column hides and shows with its trigger', () => {
