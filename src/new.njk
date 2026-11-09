@@ -1,11 +1,16 @@
 ---
 layout: default
-title: Демонстраційна форма
-description: Приклад форми, запеченої рушієм FormEngine з src/_data/demo.yml.
+title: Подати безкоштовне оголошення про нерухомість
+description: Розмістити безкоштовне оголошення про продаж чи оренду нерухомості
+bootstrap: true
 ---
 
-<div class="mx-auto w-full max-w-2xl">
-  <h1 class="mb-2 text-2xl font-bold md:text-3xl">{{ title }}</h1>
-  <p class="mb-5 text-lg text-gray-600">Приклад форми, запеченої рушієм FormEngine з <code>src/_data/demo.yml</code>. Заповніть поля та надішліть — реальні дані нікуди не надсилаються.</p>
-  {% formApp "demo" %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="h3">{{ title }}</h1>
+      <p class="lead">Ми вам завжди раді! Будь ласка, будьте уважні, заповнюючи форму дійсними даними — це дуже важливо для вас.</p>
+      {% formApp "add-property" %}
+    </div>
+  </div>
 </div>

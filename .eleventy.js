@@ -17,6 +17,11 @@ module.exports = (config) => {
   config.addPassthroughCopy('src/assets/svg/');
   config.addPassthroughCopy('src/assets/data/');
 
+  // Bootstrap 4 stylesheet for the one page that renders `theme: bootstrap4`
+  // (src/new.njk). The engine skin ships inline with the baked fragment; the
+  // grid, form-control and component look comes from this file.
+  config.addPassthroughCopy('src/assets/vendor/bootstrap4.css');
+
   // Leaflet marker/layer sprites. leaflet.js and leaflet.css are inlined into
   // the baked form fragment (see lib/form-engine.js), but the CSS references
   // url(images/...) and doInitMap sets L.Icon.Default.imagePath to
