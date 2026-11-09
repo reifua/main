@@ -7,5 +7,8 @@ module.exports = {
   logo: '/assets/svg/logo/main.svg',
   // Submit endpoint for the add-property form. Site-specific, so it lives with
   // the site data rather than in the form config (src/_data/add-property.yml).
-  addPropertyEndpoint: 'https://add-property-worker.sparkling-union-9e0a.workers.dev'
+  addPropertyEndpoint: 'https://add-property-worker.sparkling-union-9e0a.workers.dev',
+  // Submit endpoint for the demo form. Site-specific stub; the config stays
+  // site-agnostic and never carries a worker URL.
+  demoEndpoint: '/api/demo'
 };
