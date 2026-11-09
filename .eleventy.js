@@ -91,6 +91,14 @@ module.exports = (config) => {
     return value.replace(/['«»,.—]/g, '').replace(/\s+/g, '-').split('').map(c => map[c] || c).join('').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
   });
 
+  // JSON stringify with </script> escaping for safe use in <script type="application/json"> islands.
+  config.addNunjucksFilter("jsonify", function(value) {
+    return JSON.stringify(value)
+      .replace(/</g, '\\u003c')
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029');
+  });
+
   config.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
 
   config.setQuietMode(true);
