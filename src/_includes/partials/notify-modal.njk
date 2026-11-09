@@ -1,0 +1,22 @@
+<div class="modal fade" id="notifyModal" tabindex="-1" role="dialog" aria-labelledby="notifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="notifyModalLabel">Повідомити про неточність</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="lead">Якщо ви помітили помилку в оголошенні, будь ласка, повідомте нам про це.</p>
+        <div id="notify-app" data-endpoint="{{ site.notifyEndpoint }}"></div>
+        {# The form is rendered by assets/js/form-engine/app.js, so Nunjucks hands it
+           two JSON islands instead of markup: the config (the same file the
+           validator checks) and the page values the hidden inputs need. #}
+        <script id="notify-config" type="application/json">{% notifyConfigIsland %}</script>
+        <script id="notify-page" type="application/json">{% notifyPageJson uid, page.url | url, email, title %}</script>
+        <script type="module" src="{{ '/assets/js/form-engine/app.js' | url }}?v={% formEngineVersion %}"></script>
+      </div>
+    </div>
+  </div>
+</div>

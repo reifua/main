@@ -10,5 +10,7 @@ module.exports = {
   addPropertyEndpoint: 'https://add-property-worker.sparkling-union-9e0a.workers.dev',
   // Submit endpoint for the demo form. Site-specific stub; the config stays
   // site-agnostic and never carries a worker URL.
-  demoEndpoint: '/api/demo'
+  demoEndpoint: '/api/demo',
+  // Submit endpoint for the notify form (property page modal).
+  notifyEndpoint: 'https://notify-worker.sparkling-union-9e0a.workers.dev'
 };
