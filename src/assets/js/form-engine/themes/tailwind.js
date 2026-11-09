@@ -55,7 +55,7 @@ const CLEAR =
 const MENU =
   'dropdown-menu absolute z-10 mt-1 w-full rounded-md border border-gray-200 ' +
   'bg-white py-2 shadow-lg';
-const NOITEM = 'dropdown-item px-6 py-1 text-base text-gray-600 pointer-events-none';
+const NOITEM = 'dropdown-item dropdown-item-empty px-6 py-1 text-base text-gray-600 pointer-events-none';
 const SEARCH_INPUT = 'pr-8';
 const SEARCH_ICON =
   'pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500';
@@ -491,7 +491,7 @@ function checkboxGroup(field, ctx) {
   const options = (field.options || []).map((option) => {
     const value = option.value ?? option;
     const label = option.label ?? value;
-    return `<label class="mr-2 mb-2 inline-flex items-center gap-2 rounded-md border px-3 py-2 text-base font-medium ${OUTLINE_VARIANTS[variant] || outline} peer-checked:border-blue-600 peer-checked:bg-blue-100 peer-checked:text-blue-900 cursor-pointer" data-toggle-for="${attr(field.name)}" data-value="${attr(value)}">
+    return `<label class="mr-2 mb-2 inline-flex items-center gap-2 rounded-md border px-3 py-2 text-base font-medium ${OUTLINE_VARIANTS[variant] || outline} peer-checked:border-blue-600 peer-checked:bg-blue-100 peer-checked:text-blue-900" data-toggle-for="${attr(field.name)}" data-value="${attr(value)}">
         <input type="checkbox" class="sr-only peer" value="${attr(value)}" name="${attr(field.name)}" data-group="${attr(field.name)}" data-field="${attr(field.name)}"${field.readonly === true ? ' disabled' : ''}> ${raw(label)}
       </label>`;
   }).join('');
@@ -525,7 +525,7 @@ function autocomplete(field, ctx) {
     ` data-autocomplete-search="${attr(field.name)}">
       ${searchIcon('autocomplete-search-icon ' + SEARCH_ICON)}
       <button type="button" class="${CLEAR} autocomplete-clear" title="Очистити поле" data-autocomplete-clear="${attr(field.name)}" hidden>&times;</button>
-      <div class="${MENU} show"` +
+      <div class="${MENU}"` +
     ` style="max-height: 250px; overflow-y: auto; z-index: 1050;" data-autocomplete-dropdown="${attr(field.name)}">
         <div class="${NOITEM}" data-autocomplete-noresults="${attr(field.name)}"></div>
       </div>
@@ -636,7 +636,7 @@ function widgetMap(field, ctx) {
     </div>
     <div class="map-marker-info-body">
       <div class="map-marker-info-loading"><span class="inline-block h-3 w-3 animate-spin rounded-full border-2 border-gray-500" style="border-top-color:transparent"></span> Визначаю адресу&hellip;</div>
-      <div class="map-marker-info-address text-gray-500 italic">Адресу не вдалося визначити</div>
+      <div class="map-marker-info-address text-gray-500 italic" data-map-fallback>Адресу не вдалося визначити</div>
       <div class="map-marker-info-address">Адреса: <span data-map-address="${attr(field.name)}"></span></div>
       <div class="map-marker-info-coords">Координати: <span data-map-coords="${attr(field.name)}"></span></div>
     </div>
@@ -683,7 +683,7 @@ function widgetLocation(field, ctx) {
       ` data-location-search="${sub.name}" data-location-root="${root}">
       ${searchIcon('location-search-icon ' + SEARCH_ICON)}
       <button type="button" class="${CLEAR}" title="Очистити поле" data-location-clear="${sub.name}" hidden>&times;</button>
-      <div class="${MENU} show"` +
+      <div class="${MENU}"` +
       ` style="max-height: 250px; overflow-y: auto; z-index: 1050;" data-location-dropdown="${sub.name}">
         <div class="${NOITEM}"></div>
       </div>
@@ -710,7 +710,7 @@ function widgetLocation(field, ctx) {
       ${field.label ? `<h6 class="mb-2 text-base font-semibold leading-tight text-gray-900">${labelBody(field.label, ctx)}</h6>` : ''}
       ${field.helper ? `<small class="${HELPER} mb-2 block">${raw(field.helper)}</small>` : ''}
       ${fields}
-      <div class="mt-2" hidden><div class="rounded-md bg-gray-50"><div class="px-3 py-1.5"><small class="block text-xs text-gray-600" data-location-summary="${leaf}"></small></div></div></div>
+      <div class="mt-2" data-location-summary-panel hidden><div class="rounded-md bg-gray-50"><div class="px-3 py-1.5"><small class="block text-xs text-gray-600" data-location-summary="${leaf}"></small></div></div></div>
     </div>
   </div>`, ctx);
 }
@@ -897,7 +897,7 @@ function renderChrome(opts) {
   });
 
   const top =
-    `<div class="flex justify-between items-center flex-wrap gap-y-2 step-indicator">\n` +
+    `<div class="flex justify-between items-center flex-wrap gap-y-2 step-indicator" data-step-indicator>\n` +
     `  ${indicator.join('\n  ')}\n` +
     `</div>\n` +
     `\n` +
@@ -998,6 +998,9 @@ export const tailwind = {
   controlAttrs,
   addon,
   colClass: twCol,
+  // State classes the binder toggles and the page glue reuses, so a third
+  // theme can supply its own vocabulary without patching the glue (G-2).
+  validationClasses: { invalid: 'is-invalid', valid: 'is-valid' },
   chrome: renderChrome,
   modals: renderModals,
   navTokens: NAV_TOKENS,
