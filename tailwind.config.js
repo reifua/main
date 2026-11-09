@@ -5,7 +5,15 @@ module.exports = {
     // The FormEngine fragment is injected by the {% formApp %} shortcode, so its
     // utility classes appear in no .njk source. The tailwind theme is where they
     // are written as literals; scanning it keeps them from being purged.
-    content: ['./src/**/*.njk', './src/**/*.svg', './src/assets/js/form-engine/themes/tailwind.js'],
+    // The runtime JS generates HTML with Tailwind classes, and the tests render
+    // forms too — include them so purge keeps all used utilities.
+    content: [
+      './src/**/*.njk',
+      './src/**/*.svg',
+      './src/assets/js/form-engine/**/*.js',
+      './src/assets/js/form-engine/themes/tailwind.js',
+      './test/**/*.mjs'
+    ],
     layers: ['components', 'utilities'],
     options: {
       safelist: ['header-shadow', '-translate-y-full', 'hidden']
