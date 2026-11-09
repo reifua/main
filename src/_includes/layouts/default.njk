@@ -65,6 +65,9 @@
     {#<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">#}
     <link rel="stylesheet" href="{{ '/assets/css/nouislider.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+    {% if bootstrap %}
+        <link rel="stylesheet" href="{{ '/assets/vendor/bootstrap4.css' | url }}">
+    {% endif %}
     {% if isMainScreen %}
         <link rel="stylesheet" href="{{ '/assets/css/extras.css' | url }}">
     {% endif %}
