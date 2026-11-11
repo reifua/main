@@ -12,7 +12,8 @@
 		"test": "node --test --test-force-exit --test-timeout=60000 --test-concurrency=2 \"test/*.test.mjs\"",
 		"validate": "node _form-engine/tools/validate-config.mjs src/_data/add-property.yml --strict",
 		"engine:manifest": "node _form-engine/tools/engine-manifest.mjs",
-		"check:add-property": "node _form-engine/tools/check-add-property.mjs"
+		"check:add-property": "node _form-engine/tools/check-add-property.mjs",
+		"check:notify": "node _form-engine/tools/check-notify.mjs"
 	},
 	"repository": {
 		"type": "git",
