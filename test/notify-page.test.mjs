@@ -6,6 +6,8 @@ import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { loadYaml } from '../_form-engine/tools/yaml.mjs';
+import { parseHTML } from 'linkedom';
+import { boot } from '../src/assets/js/form-engine/app.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -134,10 +136,45 @@ test('form-engine.js has formEngineVersion shortcode', () => {
   assert.match(formEngine, /formEngineVersion/);
 });
 
-test('notify modal baked config island has theme bootstrap4', async () => {
+test('notify modal config island carries the whole config file', async () => {
   const { configIsland } = await bakeNotifyModal();
   const config = JSON.parse(configIsland);
-  assert.equal(config.theme, 'bootstrap4');
+  // The Jekyll twin ships `site.data.notify | jsonify`; the island must be
+  // that same JSON, not renderPage's derived {theme, settings, steps, ...}.
+  assert.deepEqual(config, loadYaml(join(ROOT, 'src/_data/notify.yml')));
+  assert.equal(config.id, 'notify');
+  assert.equal(config.version, 1);
+  assert.equal(config.behavior.mode, 'modal');
+  assert.equal(config.behavior.modal, '#notifyModal');
+  // notify.yml carries no theme key; the modal glue falls back to bootstrap4.
+  assert.equal(config.theme, undefined);
+});
+
+test('notify modal config island escapes every < so the script tag cannot close early', async () => {
+  const { configIsland } = await bakeNotifyModal();
+  assert.doesNotMatch(configIsland, /</);
+});
+
+test('the notify island boots through the modal glue with the notify form contract', async () => {
+  const { configIsland, pageJson } = await bakeNotifyModal();
+  const html = `<!doctype html><html><body>
+    <div class="modal fade" id="notifyModal"><div class="modal-body">
+      <div id="notify-app" data-endpoint="https://notify-worker.sparkling-union-9e0a.workers.dev"></div>
+      <script id="notify-config" type="application/json">${configIsland}</script>
+      <script id="notify-page" type="application/json">${pageJson}</script>
+    </div></div>
+  </body></html>`;
+  const { window } = parseHTML(html);
+  globalThis.window = window;
+  globalThis.document = window.document;
+
+  const handles = boot(window.document);
+  assert.equal(handles.length, 1, 'the notify island boots exactly one form');
+  assert.ok(handles[0].reset, 'behavior.mode: modal routes the boot through bootModal');
+  const form = window.document.querySelector('#notify-app form');
+  assert.ok(form, 'the form mounts into #notify-app');
+  assert.equal(form.getAttribute('id'), 'notify-form');
+  assert.equal(form.getAttribute('data-form'), 'notify');
 });
 
 test('notify modal page JSON shortcode produces correct structure', async () => {
