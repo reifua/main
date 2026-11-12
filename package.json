@@ -8,7 +8,15 @@
 		"serve": "npm run clean && cross-env NODE_ENV=development eleventy --serve",
 		"watch": "npm run clean && cross-env NODE_ENV=development eleventy --watch",
 		"build": "npm run clean && cross-env NODE_ENV=production eleventy",
-		"debug": "DEBUG=Eleventy* npm run build"
+		"debug": "DEBUG=Eleventy* npm run build",
+		"test": "node --test --test-force-exit --test-timeout=60000 --test-concurrency=2 \"test/*.test.mjs\"",
+		"validate": "node _form-engine/tools/validate-config.mjs src/_data/add-property.yml --strict",
+		"engine:manifest": "node _form-engine/tools/engine-manifest.mjs",
+		"check:add-property": "node _form-engine/tools/check-add-property.mjs",
+		"check:notify": "node _form-engine/tools/check-notify.mjs",
+		"test:freshness": "node --test --test-force-exit --test-timeout=60000 \"test/freshness.test.mjs\"",
+		"test:parity": "node --test --test-force-exit --test-timeout=60000 \"test/parity-jekyll-11ty.test.mjs\"",
+		"verify:render": "node _form-engine/tools/verify-render.mjs"
 	},
 	"repository": {
 		"type": "git",
@@ -27,11 +35,13 @@
 		"html-minifier": "^4.0.0",
 		"luxon": "^2.5.2",
 		"rimraf": "^3.0.2",
-		"terser": "^4.8.1"
+		"terser": "^4.8.1",
+		"linkedom": "^0.18.13"
 	},
 	"dependencies": {
 		"@11ty/eleventy-upgrade-help": "^1.0.1",
 		"@tailwindcss/forms": "^0.2.1",
-		"eleventy-plugin-tailwindcss": "github:dafiulh/eleventy-plugin-tailwindcss"
+		"eleventy-plugin-tailwindcss": "github:dafiulh/eleventy-plugin-tailwindcss",
+		"js-yaml": "^4.1.0"
 	}
 }

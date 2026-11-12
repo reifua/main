@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ezupil-01",
+    "name": "Центр",
+    "settlement": "30559"
+  },
+  {
+    "id": "ezupil-02",
+    "name": "Промислова зона",
+    "settlement": "30559"
+  },
+  {
+    "id": "ezupil-03",
+    "name": "Замостя",
+    "settlement": "30559"
+  },
+  {
+    "id": "ezupil-04",
+    "name": "Вокзальний",
+    "settlement": "30559"
+  },
+  {
+    "id": "ezupil-05",
+    "name": "Надбережжя",
+    "settlement": "30559"
+  }
+]

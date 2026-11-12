@@ -1,0 +1,171 @@
+version: 1
+id: notify
+
+# Modal form: the runtime runs the modal life-cycle, not the wizard chrome.
+behavior:
+  mode: modal
+  modal: "#notifyModal"
+
+settings:
+  title: Повідомити про неточність
+  feedback:
+    valid: Текст введено правильно
+    invalid: Неправильний формат
+    pattern: Неправильний формат
+    email: Введіть коректну електронну пошту
+  required:
+    marker: '*'
+    class: text-danger
+    tooltip: "Це поле є обов'язкове"
+    message: "Будь ласка, заповніть це поле"
+
+steps:
+  - id: form
+    rows:
+      - class: row
+        fields:
+          # ----- невидимі службові поля -------------------------------------
+          - name: honeypot_hint
+            type: raw
+            html: |-
+              <div class="sr-only" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+                <label for="notify-honeypot">Leave this field empty</label>
+                <input type="text" id="notify-honeypot" name="honeypot" tabindex="-1" autocomplete="off" value="" spellcheck="false">
+              </div>
+          - name: timestamp
+            type: hidden
+          - name: uid
+            type: hidden
+          - name: property_url
+            type: hidden
+          - name: property_email
+            type: hidden
+          - name: property_title
+            type: hidden
+
+          # ----- причина (обов'язкова) --------------------------------------
+          - name: reason
+            type: select
+            required: true
+            label: Причина повідомлення
+            placeholder: Оберіть причину
+            autocomplete: "off"
+            feedback:
+              valid: Причину обрано
+              invalid: Оберіть причину
+            validation:
+              required: Оберіть причину
+            options:
+              - value: not_actual
+                label: "Оголошення вже не актуальне (продано/здано)"
+              - value: moved_to_archive
+                label: Помилково переміщено в архів
+              - value: wrong_price
+                label: Ціна вказана неправильно
+              - value: wrong_info
+                label: Інформація в описі неточна
+              - value: error
+                label: "Помилка в оголошенні (адреса, контакти тощо)"
+              - value: duplicate
+                label: Це дублікат іншого оголошення
+              - value: other
+                label: "Інше (напишіть нижче)"
+
+          # ----- опис проблеми ------------------------------------------------
+          - name: details
+            type: textarea
+            label: Опис проблеми
+            maxlength: 256
+            pattern: "^[а-яА-ЯіїєґІЇЄҐ0-9\\s\\-–—,\\.!?\\(\\)«»@_#\\+:;'\"]*$"
+            autocomplete: "off"
+            spellcheck: false
+            placeholder: "Опишіть, що саме не так з оголошенням..."
+            helper: '<span id="notify-counter" data-countdown="details">256</span> символів залишилось'
+            feedback:
+              valid: Текст введено правильно
+              invalid: Тільки українська кирилиця, цифри, пробіли та розділові знаки
+            validation:
+              pattern: Тільки українська кирилиця, цифри, пробіли та розділові знаки
+
+          # ----- контакти (необов'язково) ------------------------------------
+          - name: contact_name
+            type: text
+            label: "Ім'я (необов'язково)"
+            col: col-md-4
+            minlength: 2
+            maxlength: 50
+            pattern: "^[а-яА-ЯіїєґІЇЄҐ0-9\\s\\-\\.@_]+$"
+            autocomplete: "off"
+            placeholder: Ваше ім'я
+            feedback:
+              valid: Текст введено правильно
+              invalid: Тільки українська кирилиця, цифри, пробіли та розділові знаки
+            validation:
+              pattern: Тільки українська кирилиця, цифри, пробіли та розділові знаки
+
+          - name: contact_phone
+            type: tel
+            label: "Телефон (необов'язково)"
+            col: col-md-4
+            minlength: 5
+            maxlength: 20
+            pattern: "^[\\+\\d\\s\\-\\(\\)]+$"
+            autocomplete: "off"
+            placeholder: "+380 (__) ___-__-__"
+            feedback:
+              valid: Текст введено правильно
+              invalid: Тільки цифри, +, -, пробіли та дужки
+            validation:
+              pattern: Тільки цифри, +, -, пробіли та дужки
+
+          - name: contact_email
+            type: email
+            label: "Електронна пошта (необов'язково)"
+            col: col-md-4
+            minlength: 3
+            maxlength: 254
+            pattern: "^[a-zA-Z0-9@\\.\\-_]+$"
+            autocomplete: "off"
+            placeholder: email@gmail.com
+            feedback:
+              valid: Текст введено правильно
+              invalid: Введіть коректну електронну пошту
+            validation:
+              email: Введіть коректну електронну пошту
+              pattern: Введіть коректну електронну пошту
+
+          # ----- статус сабміту -------------------------------------------------
+          - name: notify_error_block
+            type: raw
+            html: |-
+              <div id="notify-error" class="alert alert-danger d-none" role="alert">
+                На жаль, сталася помилка. Спробуйте ще раз пізніше.
+              </div>
+
+          - name: notify_success_block
+            type: raw
+            html: |-
+              <div id="notify-success" class="d-none">
+                <div class="alert alert-success" role="alert">
+                  <strong>Дякуємо за повідомлення!</strong> Ваше повідомлення отримано. Ми перевіримо оголошення найближчим часом.
+                </div>
+              </div>
+
+          - name: turnstile_widget
+            type: raw
+            html: '<div id="turnstile-widget" class="mb-3"></div>'
+
+          - name: notify_local_notice
+            type: raw
+            html: '<div class="alert alert-info mb-3 d-none" id="notify-local-notice"><small>Turnstile пропущено (локальний режим)</small></div>'
+
+          - name: notify_captcha_retry
+            type: raw
+            html: |-
+              <div class="mb-3 d-none" id="notify-captcha-retry">
+                <button type="button" id="notify-captcha-retry-btn" class="btn btn-link btn-sm">Спробувати ще раз</button>
+              </div>
+
+          - name: notify_submit
+            type: raw
+            html: '<button type="submit" id="notify-submit" class="btn btn-primary">Надіслати</button>'

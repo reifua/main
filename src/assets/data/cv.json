@@ -1,0 +1,3425 @@
+[
+  {
+    "id": "0372",
+    "name": "Чернівецька область",
+    "url": "https://decentralization.ua/areas/0372",
+    "katotth": "UA73000000000044923",
+    "type": "область",
+    "raions": [
+      {
+        "id": "1415",
+        "name": "Вижницький район",
+        "url": "https://decentralization.ua/newrayons/1415",
+        "katotth": "UA73020000000038148",
+        "type": "район",
+        "hromadas": [
+          {
+            "id": "4869",
+            "name": "Банилівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4869",
+            "katotth": "UA73020010000044067",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48365",
+                "name": "Банилів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48365",
+                "katotth": "UA73020010010031879"
+              },
+              {
+                "id": "48366",
+                "name": "Бережниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48366",
+                "katotth": "UA73020010020058340"
+              },
+              {
+                "id": "48367",
+                "name": "Бережонка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48367",
+                "katotth": "UA73020010030059180"
+              },
+              {
+                "id": "48368",
+                "name": "Коритне",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48368",
+                "katotth": "UA73020010040048060"
+              }
+            ]
+          },
+          {
+            "id": "4870",
+            "name": "Берегометська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4870",
+            "katotth": "UA73020030000022011",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48369",
+                "name": "Берегомет",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48369",
+                "katotth": "UA73020030010046664"
+              },
+              {
+                "id": "48370",
+                "name": "Вахнівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48370",
+                "katotth": "UA73020030020074696"
+              },
+              {
+                "id": "48371",
+                "name": "Велике",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48371",
+                "katotth": "UA73020030030055809"
+              },
+              {
+                "id": "48372",
+                "name": "Вовчинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48372",
+                "katotth": "UA73020030040077395"
+              },
+              {
+                "id": "48373",
+                "name": "Долішній Шепіт",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48373",
+                "katotth": "UA73020030050013849"
+              },
+              {
+                "id": "48374",
+                "name": "Заріччя",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48374",
+                "katotth": "UA73020030060096784"
+              },
+              {
+                "id": "48375",
+                "name": "Лекечі",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48375",
+                "katotth": "UA73020030070047417"
+              },
+              {
+                "id": "48376",
+                "name": "Липовани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48376",
+                "katotth": "UA73020030080059354"
+              },
+              {
+                "id": "48377",
+                "name": "Лопушна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48377",
+                "katotth": "UA73020030090089698"
+              },
+              {
+                "id": "48378",
+                "name": "Лукавці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48378",
+                "katotth": "UA73020030100095657"
+              },
+              {
+                "id": "48379",
+                "name": "Майдан",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48379",
+                "katotth": "UA73020030110042449"
+              },
+              {
+                "id": "48380",
+                "name": "Мигове",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48380",
+                "katotth": "UA73020030120060784"
+              },
+              {
+                "id": "48381",
+                "name": "Фальків",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48381",
+                "katotth": "UA73020030130060272"
+              }
+            ]
+          },
+          {
+            "id": "4872",
+            "name": "Брусницька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4872",
+            "katotth": "UA73020050000061546",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48386",
+                "name": "Брусенки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48386",
+                "katotth": "UA73020050020064730"
+              },
+              {
+                "id": "48387",
+                "name": "Брусниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48387",
+                "katotth": "UA73020050010070150"
+              },
+              {
+                "id": "48388",
+                "name": "Верхні Станівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48388",
+                "katotth": "UA73020050030081493"
+              },
+              {
+                "id": "48389",
+                "name": "Виноград",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48389",
+                "katotth": "UA73020050040076017"
+              },
+              {
+                "id": "48390",
+                "name": "Діброва",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48390",
+                "katotth": "UA73020050050018903"
+              },
+              {
+                "id": "48391",
+                "name": "Зеленів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48391",
+                "katotth": "UA73020050060038283"
+              },
+              {
+                "id": "48392",
+                "name": "Кальнівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48392",
+                "katotth": "UA73020050070016992"
+              },
+              {
+                "id": "48393",
+                "name": "Нижні Станівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48393",
+                "katotth": "UA73020050080066029"
+              },
+              {
+                "id": "48394",
+                "name": "Остра",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48394",
+                "katotth": "UA73020050090090056"
+              },
+              {
+                "id": "48395",
+                "name": "Чортория",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48395",
+                "katotth": "UA73020050100054684"
+              }
+            ]
+          },
+          {
+            "id": "4874",
+            "name": "Вашківецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4874",
+            "katotth": "UA73020070000035367",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48406",
+                "name": "Бабине",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48406",
+                "katotth": "UA73020070020024528"
+              },
+              {
+                "id": "48407",
+                "name": "Вали",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48407",
+                "katotth": "UA73020070030093936"
+              },
+              {
+                "id": "48408",
+                "name": "Вашківці",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48408",
+                "katotth": "UA73020070010063977"
+              },
+              {
+                "id": "48409",
+                "name": "Волока",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48409",
+                "katotth": "UA73020070040059267"
+              },
+              {
+                "id": "48410",
+                "name": "Замостя",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48410",
+                "katotth": "UA73020070050039786"
+              },
+              {
+                "id": "48411",
+                "name": "Карапчів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48411",
+                "katotth": "UA73020070060061638"
+              },
+              {
+                "id": "48412",
+                "name": "Слобода-Банилів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48412",
+                "katotth": "UA73020070070019085"
+              }
+            ]
+          },
+          {
+            "id": "4878",
+            "name": "Вижницька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4878",
+            "katotth": "UA73020090000031499",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48432",
+                "name": "Іспас",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48432",
+                "katotth": "UA73020090040050414"
+              },
+              {
+                "id": "48429",
+                "name": "Багна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48429",
+                "katotth": "UA73020090020039240"
+              },
+              {
+                "id": "48430",
+                "name": "Виженка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48430",
+                "katotth": "UA73020090030070452"
+              },
+              {
+                "id": "48431",
+                "name": "Вижниця",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48431",
+                "katotth": "UA73020090010033414"
+              },
+              {
+                "id": "48433",
+                "name": "Кибаки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48433",
+                "katotth": "UA73020090050046266"
+              },
+              {
+                "id": "48434",
+                "name": "Майдан",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48434",
+                "katotth": "UA73020090060082054"
+              },
+              {
+                "id": "48435",
+                "name": "Мілієве",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48435",
+                "katotth": "UA73020090070085579"
+              },
+              {
+                "id": "48436",
+                "name": "Середній Майдан",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48436",
+                "katotth": "UA73020090080045974"
+              },
+              {
+                "id": "48437",
+                "name": "Черешенька",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48437",
+                "katotth": "UA73020090090038310"
+              },
+              {
+                "id": "48438",
+                "name": "Чорногузи",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48438",
+                "katotth": "UA73020090100092646"
+              }
+            ]
+          },
+          {
+            "id": "4892",
+            "name": "Конятинська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4892",
+            "katotth": "UA73020110000071923",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48547",
+                "name": "Великий Липовець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48547",
+                "katotth": "UA73020110020060046"
+              },
+              {
+                "id": "48548",
+                "name": "Голошина",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48548",
+                "katotth": "UA73020110030057985"
+              },
+              {
+                "id": "48549",
+                "name": "Греблина",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48549",
+                "katotth": "UA73020110040030695"
+              },
+              {
+                "id": "48550",
+                "name": "Довгопілля",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48550",
+                "katotth": "UA73020110050093942"
+              },
+              {
+                "id": "48551",
+                "name": "Конятин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48551",
+                "katotth": "UA73020110010042344"
+              },
+              {
+                "id": "48552",
+                "name": "Плай",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48552",
+                "katotth": "UA73020110060025227"
+              },
+              {
+                "id": "48553",
+                "name": "Плита",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48553",
+                "katotth": "UA73020110070082241"
+              },
+              {
+                "id": "48554",
+                "name": "Самакова",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48554",
+                "katotth": "UA73020110080039559"
+              },
+              {
+                "id": "48555",
+                "name": "Стебні",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48555",
+                "katotth": "UA73020110090057289"
+              },
+              {
+                "id": "48556",
+                "name": "Яблуниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48556",
+                "katotth": "UA73020110100088028"
+              }
+            ]
+          },
+          {
+            "id": "4905",
+            "name": "Путильська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4905",
+            "katotth": "UA73020130000092871",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48637",
+                "name": "Випчина",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48637",
+                "katotth": "UA73020130020053269"
+              },
+              {
+                "id": "48638",
+                "name": "Греблина",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48638",
+                "katotth": "UA73020130030035874"
+              },
+              {
+                "id": "48639",
+                "name": "Гробище",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48639",
+                "katotth": "UA73020130040085097"
+              },
+              {
+                "id": "48640",
+                "name": "Дихтинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48640",
+                "katotth": "UA73020130050030754"
+              },
+              {
+                "id": "48641",
+                "name": "Замогила",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48641",
+                "katotth": "UA73020130060071043"
+              },
+              {
+                "id": "48642",
+                "name": "Киселиці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48642",
+                "katotth": "UA73020130070054790"
+              },
+              {
+                "id": "48643",
+                "name": "Малий Дихтинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48643",
+                "katotth": "UA73020130080012566"
+              },
+              {
+                "id": "48644",
+                "name": "Паркулина",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48644",
+                "katotth": "UA73020130090010026"
+              },
+              {
+                "id": "48645",
+                "name": "Площі",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48645",
+                "katotth": "UA73020130100027799"
+              },
+              {
+                "id": "48646",
+                "name": "Поляківське",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48646",
+                "katotth": "UA73020130110076249"
+              },
+              {
+                "id": "48647",
+                "name": "Путила",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48647",
+                "katotth": "UA73020130010052686"
+              },
+              {
+                "id": "48648",
+                "name": "Рижа",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48648",
+                "katotth": "UA73020130120022726"
+              },
+              {
+                "id": "48649",
+                "name": "Рипень",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48649",
+                "katotth": "UA73020130130054969"
+              },
+              {
+                "id": "48650",
+                "name": "Сергії",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48650",
+                "katotth": "UA73020130140022489"
+              },
+              {
+                "id": "48651",
+                "name": "Соколій",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48651",
+                "katotth": "UA73020130150088644"
+              },
+              {
+                "id": "48652",
+                "name": "Тесницька",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48652",
+                "katotth": "UA73020130160081475"
+              },
+              {
+                "id": "48653",
+                "name": "Тораки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48653",
+                "katotth": "UA73020130170087448"
+              },
+              {
+                "id": "48654",
+                "name": "Фошки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48654",
+                "katotth": "UA73020130180046381"
+              }
+            ]
+          },
+          {
+            "id": "4907",
+            "name": "Селятинська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4907",
+            "katotth": "UA73020150000076225",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48661",
+                "name": "Андреківське",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48661",
+                "katotth": "UA73020150020085903"
+              },
+              {
+                "id": "48662",
+                "name": "Верхній Яловець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48662",
+                "katotth": "UA73020150030090854"
+              },
+              {
+                "id": "48663",
+                "name": "Галицівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48663",
+                "katotth": "UA73020150040086276"
+              },
+              {
+                "id": "48664",
+                "name": "Лустун",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48664",
+                "katotth": "UA73020150050089198"
+              },
+              {
+                "id": "48665",
+                "name": "Нижній Яловець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48665",
+                "katotth": "UA73020150060060200"
+              },
+              {
+                "id": "48666",
+                "name": "Плоска",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48666",
+                "katotth": "UA73020150070039781"
+              },
+              {
+                "id": "48667",
+                "name": "Руська",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48667",
+                "katotth": "UA73020150080092287"
+              },
+              {
+                "id": "48668",
+                "name": "Сарата",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48668",
+                "katotth": "UA73020150090012506"
+              },
+              {
+                "id": "48669",
+                "name": "Селятин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48669",
+                "katotth": "UA73020150010066428"
+              },
+              {
+                "id": "48670",
+                "name": "Шепіт",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48670",
+                "katotth": "UA73020150100021548"
+              }
+            ]
+          },
+          {
+            "id": "4915",
+            "name": "Усть-Путильська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4915",
+            "katotth": "UA73020170000016631",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48738",
+                "name": "Бисків",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48738",
+                "katotth": "UA73020170020037370"
+              },
+              {
+                "id": "48739",
+                "name": "Бісків",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48739",
+                "katotth": "UA73020170030077048"
+              },
+              {
+                "id": "48740",
+                "name": "Мариничі",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48740",
+                "katotth": "UA73020170040097243"
+              },
+              {
+                "id": "48741",
+                "name": "Міжброди",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48741",
+                "katotth": "UA73020170050067184"
+              },
+              {
+                "id": "48742",
+                "name": "Околена",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48742",
+                "katotth": "UA73020170060017624"
+              },
+              {
+                "id": "48743",
+                "name": "Петраші",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48743",
+                "katotth": "UA73020170070060760"
+              },
+              {
+                "id": "48744",
+                "name": "Підзахаричі",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48744",
+                "katotth": "UA73020170080071558"
+              },
+              {
+                "id": "48745",
+                "name": "Розтоки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48745",
+                "katotth": "UA73020170090047392"
+              },
+              {
+                "id": "48746",
+                "name": "Товарниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48746",
+                "katotth": "UA73020170100045110"
+              },
+              {
+                "id": "48747",
+                "name": "Усть-Путила",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48747",
+                "katotth": "UA73020170010086116"
+              },
+              {
+                "id": "48748",
+                "name": "Хорови",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48748",
+                "katotth": "UA73020170110062340"
+              },
+              {
+                "id": "48749",
+                "name": "Шпетки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48749",
+                "katotth": "UA73020170120060425"
+              },
+              {
+                "id": "48750",
+                "name": "Ями",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48750",
+                "katotth": "UA73020170130075385"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "1416",
+        "name": "Дністровський район",
+        "url": "https://decentralization.ua/newrayons/1416",
+        "katotth": "UA73040000000031528",
+        "type": "район",
+        "hromadas": [
+          {
+            "id": "4875",
+            "name": "Вашковецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4875",
+            "katotth": "UA73040010000039325",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48413",
+                "name": "Вашківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48413",
+                "katotth": "UA73040010010074562"
+              },
+              {
+                "id": "48414",
+                "name": "Нова Слобода",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48414",
+                "katotth": "UA73040010020091935"
+              },
+              {
+                "id": "48415",
+                "name": "Струмок",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48415",
+                "katotth": "UA73040010030095005"
+              },
+              {
+                "id": "48416",
+                "name": "Шишківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48416",
+                "katotth": "UA73040010040076875"
+              }
+            ]
+          },
+          {
+            "id": "4889",
+            "name": "Кельменецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4889",
+            "katotth": "UA73040030000042378",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48508",
+                "name": "Іванівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48508",
+                "katotth": "UA73040030120053513"
+              },
+              {
+                "id": "48498",
+                "name": "Бабин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48498",
+                "katotth": "UA73040030020044061"
+              },
+              {
+                "id": "48499",
+                "name": "Бернове",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48499",
+                "katotth": "UA73040030030059169"
+              },
+              {
+                "id": "48500",
+                "name": "Браїлівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48500",
+                "katotth": "UA73040030040021274"
+              },
+              {
+                "id": "48501",
+                "name": "Бузовиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48501",
+                "katotth": "UA73040030050056667"
+              },
+              {
+                "id": "48502",
+                "name": "Бурдюг",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48502",
+                "katotth": "UA73040030060097673"
+              },
+              {
+                "id": "48503",
+                "name": "Вартиківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48503",
+                "katotth": "UA73040030070078962"
+              },
+              {
+                "id": "48504",
+                "name": "Вовчинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48504",
+                "katotth": "UA73040030080028189"
+              },
+              {
+                "id": "48505",
+                "name": "Вороновиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48505",
+                "katotth": "UA73040030090053667"
+              },
+              {
+                "id": "48506",
+                "name": "Грушівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48506",
+                "katotth": "UA73040030100043703"
+              },
+              {
+                "id": "48507",
+                "name": "Дністрівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48507",
+                "katotth": "UA73040030110061648"
+              },
+              {
+                "id": "48509",
+                "name": "Кельменці",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48509",
+                "katotth": "UA73040030010052462"
+              },
+              {
+                "id": "48510",
+                "name": "Комарів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48510",
+                "katotth": "UA73040030130086466"
+              },
+              {
+                "id": "48511",
+                "name": "Коновка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48511",
+                "katotth": "UA73040030140092340"
+              },
+              {
+                "id": "48512",
+                "name": "Ленківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48512",
+                "katotth": "UA73040030150026799"
+              },
+              {
+                "id": "48513",
+                "name": "Лукачівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48513",
+                "katotth": "UA73040030160079388"
+              },
+              {
+                "id": "48514",
+                "name": "Майорка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48514",
+                "katotth": "UA73040030170025048"
+              },
+              {
+                "id": "48515",
+                "name": "Макарівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48515",
+                "katotth": "UA73040030180030029"
+              },
+              {
+                "id": "48516",
+                "name": "Мошанець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48516",
+                "katotth": "UA73040030190099706"
+              },
+              {
+                "id": "48517",
+                "name": "Нагоряни",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48517",
+                "katotth": "UA73040030200097936"
+              },
+              {
+                "id": "48518",
+                "name": "Нелипівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48518",
+                "katotth": "UA73040030210089955"
+              },
+              {
+                "id": "48519",
+                "name": "Новоселиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48519",
+                "katotth": "UA73040030220077721"
+              },
+              {
+                "id": "48520",
+                "name": "Перківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48520",
+                "katotth": "UA73040030230097445"
+              },
+              {
+                "id": "48521",
+                "name": "Путрине",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48521",
+                "katotth": "UA73040030240010696"
+              },
+              {
+                "id": "48522",
+                "name": "Росошани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48522",
+                "katotth": "UA73040030250090891"
+              },
+              {
+                "id": "48523",
+                "name": "Слобідка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48523",
+                "katotth": "UA73040030260011282"
+              }
+            ]
+          },
+          {
+            "id": "4891",
+            "name": "Клішковецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4891",
+            "katotth": "UA73040050000080963",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48535",
+                "name": "Блищадь",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48535",
+                "katotth": "UA73040050020024685"
+              },
+              {
+                "id": "48536",
+                "name": "Гринячка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48536",
+                "katotth": "UA73040050030064899"
+              },
+              {
+                "id": "48537",
+                "name": "Зелена Липа",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48537",
+                "katotth": "UA73040050040065003"
+              },
+              {
+                "id": "48538",
+                "name": "Клішківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48538",
+                "katotth": "UA73040050010040433"
+              },
+              {
+                "id": "48539",
+                "name": "Корнешти",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48539",
+                "katotth": "UA73040050050072285"
+              },
+              {
+                "id": "48540",
+                "name": "Малинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48540",
+                "katotth": "UA73040050060043500"
+              },
+              {
+                "id": "48541",
+                "name": "Млинки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48541",
+                "katotth": "UA73040050070035082"
+              },
+              {
+                "id": "48542",
+                "name": "Перебиківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48542",
+                "katotth": "UA73040050080089036"
+              },
+              {
+                "id": "48543",
+                "name": "Поляна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48543",
+                "katotth": "UA73040050090089228"
+              },
+              {
+                "id": "48544",
+                "name": "Рухотин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48544",
+                "katotth": "UA73040050100016801"
+              },
+              {
+                "id": "48545",
+                "name": "Санківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48545",
+                "katotth": "UA73040050110014830"
+              },
+              {
+                "id": "48546",
+                "name": "Шилівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48546",
+                "katotth": "UA73040050120035037"
+              }
+            ]
+          },
+          {
+            "id": "4895",
+            "name": "Лівинецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4895",
+            "katotth": "UA73040070000053425",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48564",
+                "name": "Зелена",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48564",
+                "katotth": "UA73040070020088469"
+              },
+              {
+                "id": "48565",
+                "name": "Козиряни",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48565",
+                "katotth": "UA73040070030058525"
+              },
+              {
+                "id": "48566",
+                "name": "Кроква",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48566",
+                "katotth": "UA73040070040021549"
+              },
+              {
+                "id": "48567",
+                "name": "Лівинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48567",
+                "katotth": "UA73040070010080006"
+              },
+              {
+                "id": "48568",
+                "name": "Михайлівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48568",
+                "katotth": "UA73040070050069713"
+              },
+              {
+                "id": "48569",
+                "name": "Оселівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48569",
+                "katotth": "UA73040070060039605"
+              },
+              {
+                "id": "48570",
+                "name": "Подвір'ївка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48570",
+                "katotth": "UA73040070070083978"
+              }
+            ]
+          },
+          {
+            "id": "4898",
+            "name": "Мамалигівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4898",
+            "katotth": "UA73040090000036527",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48588",
+                "name": "Балківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48588",
+                "katotth": "UA73040090020035657"
+              },
+              {
+                "id": "48589",
+                "name": "Драниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48589",
+                "katotth": "UA73040090030034170"
+              },
+              {
+                "id": "48590",
+                "name": "Кошуляни",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48590",
+                "katotth": "UA73040090040027466"
+              },
+              {
+                "id": "48591",
+                "name": "Мамалига",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48591",
+                "katotth": "UA73040090010045589"
+              },
+              {
+                "id": "48592",
+                "name": "Негринці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48592",
+                "katotth": "UA73040090050072192"
+              },
+              {
+                "id": "48593",
+                "name": "Несвоя",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48593",
+                "katotth": "UA73040090060063445"
+              },
+              {
+                "id": "48594",
+                "name": "Подвірне",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48594",
+                "katotth": "UA73040090070074783"
+              },
+              {
+                "id": "48595",
+                "name": "Стальнівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48595",
+                "katotth": "UA73040090080028450"
+              }
+            ]
+          },
+          {
+            "id": "4899",
+            "name": "Недобоївська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4899",
+            "katotth": "UA73040110000040354",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48596",
+                "name": "Владична",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48596",
+                "katotth": "UA73040110020084094"
+              },
+              {
+                "id": "48597",
+                "name": "Долиняни",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48597",
+                "katotth": "UA73040110030026492"
+              },
+              {
+                "id": "48598",
+                "name": "Зарожани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48598",
+                "katotth": "UA73040110040081975"
+              },
+              {
+                "id": "48599",
+                "name": "Керстенці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48599",
+                "katotth": "UA73040110050029593"
+              },
+              {
+                "id": "48600",
+                "name": "Недобоївці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48600",
+                "katotth": "UA73040110010068047"
+              },
+              {
+                "id": "48601",
+                "name": "Ставчани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48601",
+                "katotth": "UA73040110060026076"
+              },
+              {
+                "id": "48602",
+                "name": "Ширівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48602",
+                "katotth": "UA73040110070046115"
+              }
+            ]
+          },
+          {
+            "id": "4901",
+            "name": "Новодністровська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4901",
+            "katotth": "UA73040130000087963",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48609",
+                "name": "Новодністровськ",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48609",
+                "katotth": "UA73040130010085979"
+              }
+            ]
+          },
+          {
+            "id": "4906",
+            "name": "Рукшинська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4906",
+            "katotth": "UA73040150000056182",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48655",
+                "name": "Гордівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48655",
+                "katotth": "UA73040150020099447"
+              },
+              {
+                "id": "48656",
+                "name": "Орестівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48656",
+                "katotth": "UA73040150030076821"
+              },
+              {
+                "id": "48657",
+                "name": "Пригородок",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48657",
+                "katotth": "UA73040150040080787"
+              },
+              {
+                "id": "48658",
+                "name": "Рашків",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48658",
+                "katotth": "UA73040150050073072"
+              },
+              {
+                "id": "48659",
+                "name": "Рукшин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48659",
+                "katotth": "UA73040150010039650"
+              },
+              {
+                "id": "48660",
+                "name": "Чепоноси",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48660",
+                "katotth": "UA73040150060052355"
+              }
+            ]
+          },
+          {
+            "id": "4908",
+            "name": "Сокирянська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4908",
+            "katotth": "UA73040170000011490",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48672",
+                "name": "Братанівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48672",
+                "katotth": "UA73040170030025542"
+              },
+              {
+                "id": "48671",
+                "name": "Білоусівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48671",
+                "katotth": "UA73040170020075682"
+              },
+              {
+                "id": "48673",
+                "name": "Василівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48673",
+                "katotth": "UA73040170040026503"
+              },
+              {
+                "id": "48675",
+                "name": "Волошкове",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48675",
+                "katotth": "UA73040170060047648"
+              },
+              {
+                "id": "48674",
+                "name": "Вітрянка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48674",
+                "katotth": "UA73040170050044512"
+              },
+              {
+                "id": "48676",
+                "name": "Галиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48676",
+                "katotth": "UA73040170070071027"
+              },
+              {
+                "id": "48677",
+                "name": "Гвіздівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48677",
+                "katotth": "UA73040170080017536"
+              },
+              {
+                "id": "48678",
+                "name": "Грубна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48678",
+                "katotth": "UA73040170090053072"
+              },
+              {
+                "id": "48679",
+                "name": "Коболчин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48679",
+                "katotth": "UA73040170100096521"
+              },
+              {
+                "id": "48680",
+                "name": "Кормань",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48680",
+                "katotth": "UA73040170110026144"
+              },
+              {
+                "id": "48681",
+                "name": "Кулішівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48681",
+                "katotth": "UA73040170120087482"
+              },
+              {
+                "id": "48682",
+                "name": "Ломачинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48682",
+                "katotth": "UA73040170130026041"
+              },
+              {
+                "id": "48683",
+                "name": "Лопатів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48683",
+                "katotth": "UA73040170140087514"
+              },
+              {
+                "id": "48684",
+                "name": "Михалкове",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48684",
+                "katotth": "UA73040170150099112"
+              },
+              {
+                "id": "48685",
+                "name": "Непоротове",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48685",
+                "katotth": "UA73040170160037278"
+              },
+              {
+                "id": "48686",
+                "name": "Новоолексіївка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48686",
+                "katotth": "UA73040170170022482"
+              },
+              {
+                "id": "48687",
+                "name": "Ожеве",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48687",
+                "katotth": "UA73040170180055422"
+              },
+              {
+                "id": "48688",
+                "name": "Олексіївка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48688",
+                "katotth": "UA73040170190029710"
+              },
+              {
+                "id": "48689",
+                "name": "Покровка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48689",
+                "katotth": "UA73040170200097085"
+              },
+              {
+                "id": "48690",
+                "name": "Розкопинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48690",
+                "katotth": "UA73040170210031570"
+              },
+              {
+                "id": "48691",
+                "name": "Романківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48691",
+                "katotth": "UA73040170220083791"
+              },
+              {
+                "id": "48692",
+                "name": "Селище",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48692",
+                "katotth": "UA73040170230019897"
+              },
+              {
+                "id": "48693",
+                "name": "Сербичани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48693",
+                "katotth": "UA73040170240082792"
+              },
+              {
+                "id": "48694",
+                "name": "Сокиряни",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48694",
+                "katotth": "UA73040170010044151"
+              },
+              {
+                "id": "48695",
+                "name": "Шебутинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48695",
+                "katotth": "UA73040170250041549"
+              }
+            ]
+          },
+          {
+            "id": "4916",
+            "name": "Хотинська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4916",
+            "katotth": "UA73040190000062796",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48751",
+                "name": "Анадоли",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48751",
+                "katotth": "UA73040190020037491"
+              },
+              {
+                "id": "48752",
+                "name": "Атаки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48752",
+                "katotth": "UA73040190030077295"
+              },
+              {
+                "id": "48753",
+                "name": "Білівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48753",
+                "katotth": "UA73040190040095379"
+              },
+              {
+                "id": "48754",
+                "name": "Ворничани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48754",
+                "katotth": "UA73040190050053445"
+              },
+              {
+                "id": "48755",
+                "name": "Данківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48755",
+                "katotth": "UA73040190060046957"
+              },
+              {
+                "id": "48756",
+                "name": "Каплівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48756",
+                "katotth": "UA73040190070094176"
+              },
+              {
+                "id": "48757",
+                "name": "Круглик",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48757",
+                "katotth": "UA73040190080041773"
+              },
+              {
+                "id": "48758",
+                "name": "Крутеньки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48758",
+                "katotth": "UA73040190090052374"
+              },
+              {
+                "id": "48759",
+                "name": "Пашківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48759",
+                "katotth": "UA73040190100090404"
+              },
+              {
+                "id": "48760",
+                "name": "Хотин",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48760",
+                "katotth": "UA73040190010054219"
+              },
+              {
+                "id": "48761",
+                "name": "Ярівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48761",
+                "katotth": "UA73040190110055916"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "1417",
+        "name": "Чернівецький район",
+        "url": "https://decentralization.ua/newrayons/1417",
+        "katotth": "UA73060000000061247",
+        "type": "район",
+        "hromadas": [
+          {
+            "id": "4871",
+            "name": "Боянська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4871",
+            "katotth": "UA73060010000052133",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48382",
+                "name": "Бояни",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48382",
+                "katotth": "UA73060010010023298"
+              },
+              {
+                "id": "48383",
+                "name": "Боянівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48383",
+                "katotth": "UA73060010020055327"
+              },
+              {
+                "id": "48384",
+                "name": "Гай",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48384",
+                "katotth": "UA73060010030096131"
+              },
+              {
+                "id": "48385",
+                "name": "Припруття",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48385",
+                "katotth": "UA73060010040096281"
+              }
+            ]
+          },
+          {
+            "id": "4873",
+            "name": "Ванчиковецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4873",
+            "katotth": "UA73060030000078843",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48396",
+                "name": "Ванчиківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48396",
+                "katotth": "UA73060030010032046"
+              },
+              {
+                "id": "48397",
+                "name": "Ванчинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48397",
+                "katotth": "UA73060030020079580"
+              },
+              {
+                "id": "48398",
+                "name": "Думени",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48398",
+                "katotth": "UA73060030030068352"
+              },
+              {
+                "id": "48399",
+                "name": "Жилівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48399",
+                "katotth": "UA73060030040020051"
+              },
+              {
+                "id": "48400",
+                "name": "Костичани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48400",
+                "katotth": "UA73060030050082393"
+              },
+              {
+                "id": "48401",
+                "name": "Новоіванківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48401",
+                "katotth": "UA73060030060081163"
+              },
+              {
+                "id": "48402",
+                "name": "Тарасівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48402",
+                "katotth": "UA73060030070096088"
+              },
+              {
+                "id": "48403",
+                "name": "Форосна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48403",
+                "katotth": "UA73060030080092607"
+              },
+              {
+                "id": "48404",
+                "name": "Черленівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48404",
+                "katotth": "UA73060030090018598"
+              },
+              {
+                "id": "48405",
+                "name": "Щербинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48405",
+                "katotth": "UA73060030100072686"
+              }
+            ]
+          },
+          {
+            "id": "4876",
+            "name": "Великокучурівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4876",
+            "katotth": "UA73060050000034325",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48417",
+                "name": "Великий Кучурів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48417",
+                "katotth": "UA73060050010068893"
+              },
+              {
+                "id": "48418",
+                "name": "Глибочок",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48418",
+                "katotth": "UA73060050020030562"
+              },
+              {
+                "id": "48419",
+                "name": "Годилів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48419",
+                "katotth": "UA73060050030035303"
+              },
+              {
+                "id": "48420",
+                "name": "Снячів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48420",
+                "katotth": "UA73060050040072029"
+              },
+              {
+                "id": "48421",
+                "name": "Тисовець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48421",
+                "katotth": "UA73060050050046616"
+              }
+            ]
+          },
+          {
+            "id": "4877",
+            "name": "Веренчацька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4877",
+            "katotth": "UA73060070000082869",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48422",
+                "name": "Бабин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48422",
+                "katotth": "UA73060070020050474"
+              },
+              {
+                "id": "48423",
+                "name": "Борівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48423",
+                "katotth": "UA73060070030080976"
+              },
+              {
+                "id": "48424",
+                "name": "Веренчанка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48424",
+                "katotth": "UA73060070010094004"
+              },
+              {
+                "id": "48425",
+                "name": "Вимушів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48425",
+                "katotth": "UA73060070040032357"
+              },
+              {
+                "id": "48426",
+                "name": "Киселів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48426",
+                "katotth": "UA73060070050096016"
+              },
+              {
+                "id": "48427",
+                "name": "Рудка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48427",
+                "katotth": "UA73060070060043071"
+              },
+              {
+                "id": "48428",
+                "name": "Яблунівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48428",
+                "katotth": "UA73060070070074110"
+              }
+            ]
+          },
+          {
+            "id": "4880",
+            "name": "Волоківська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4880",
+            "katotth": "UA73060110000070017",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48447",
+                "name": "Валя Кузьмина",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48447",
+                "katotth": "UA73060110020015724"
+              },
+              {
+                "id": "48448",
+                "name": "Волока",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48448",
+                "katotth": "UA73060110010020288"
+              },
+              {
+                "id": "48449",
+                "name": "Грушівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48449",
+                "katotth": "UA73060110030067511"
+              },
+              {
+                "id": "48450",
+                "name": "Круп'янське",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48450",
+                "katotth": "UA73060110040020705"
+              }
+            ]
+          },
+          {
+            "id": "4879",
+            "name": "Вікнянська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4879",
+            "katotth": "UA73060090000047054",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48439",
+                "name": "Брідок",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48439",
+                "katotth": "UA73060090020026020"
+              },
+              {
+                "id": "48440",
+                "name": "Вікно",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48440",
+                "katotth": "UA73060090010051066"
+              },
+              {
+                "id": "48441",
+                "name": "Дорошівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48441",
+                "katotth": "UA73060090030050438"
+              },
+              {
+                "id": "48442",
+                "name": "Митків",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48442",
+                "katotth": "UA73060090040030593"
+              },
+              {
+                "id": "48443",
+                "name": "Мосорівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48443",
+                "katotth": "UA73060090050026477"
+              },
+              {
+                "id": "48444",
+                "name": "Онут",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48444",
+                "katotth": "UA73060090060029768"
+              },
+              {
+                "id": "48445",
+                "name": "Самушин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48445",
+                "katotth": "UA73060090070060622"
+              },
+              {
+                "id": "48446",
+                "name": "Товтри",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48446",
+                "katotth": "UA73060090080056828"
+              }
+            ]
+          },
+          {
+            "id": "4881",
+            "name": "Герцаївська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4881",
+            "katotth": "UA73060130000078771",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48451",
+                "name": "Байраки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48451",
+                "katotth": "UA73060130020087695"
+              },
+              {
+                "id": "48452",
+                "name": "Великосілля",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48452",
+                "katotth": "UA73060130030067151"
+              },
+              {
+                "id": "48453",
+                "name": "Герца",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48453",
+                "katotth": "UA73060130010067568"
+              },
+              {
+                "id": "48454",
+                "name": "Дяківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48454",
+                "katotth": "UA73060130040038355"
+              },
+              {
+                "id": "48455",
+                "name": "Куликівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48455",
+                "katotth": "UA73060130050080939"
+              },
+              {
+                "id": "48456",
+                "name": "Лунка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48456",
+                "katotth": "UA73060130060080299"
+              },
+              {
+                "id": "48457",
+                "name": "Могилiвка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48457",
+                "katotth": ""
+              },
+              {
+                "id": "48458",
+                "name": "Молниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48458",
+                "katotth": "UA73060130080062976"
+              },
+              {
+                "id": "48459",
+                "name": "Петрашівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48459",
+                "katotth": "UA73060130090041174"
+              },
+              {
+                "id": "48460",
+                "name": "Підвальне",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48460",
+                "katotth": "UA73060130100035956"
+              },
+              {
+                "id": "48461",
+                "name": "Тернавка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48461",
+                "katotth": "UA73060130110014476"
+              },
+              {
+                "id": "48462",
+                "name": "Хряцька",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48462",
+                "katotth": "UA73060130120098755"
+              }
+            ]
+          },
+          {
+            "id": "4882",
+            "name": "Глибоцька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4882",
+            "katotth": "UA73060150000088691",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48463",
+                "name": "Глибока",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48463",
+                "katotth": "UA73060150010043412"
+              },
+              {
+                "id": "48464",
+                "name": "Димка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48464",
+                "katotth": "UA73060150020097240"
+              },
+              {
+                "id": "48465",
+                "name": "Михайлівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48465",
+                "katotth": "UA73060150030072624"
+              },
+              {
+                "id": "48466",
+                "name": "Новий Вовчинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48466",
+                "katotth": "UA73060150040075107"
+              },
+              {
+                "id": "48467",
+                "name": "Опришени",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48467",
+                "katotth": "UA73060150050051060"
+              },
+              {
+                "id": "48468",
+                "name": "Слобідка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48468",
+                "katotth": "UA73060150060044845"
+              },
+              {
+                "id": "48469",
+                "name": "Стерче",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48469",
+                "katotth": "UA73060150070043170"
+              },
+              {
+                "id": "48470",
+                "name": "Червона Діброва",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48470",
+                "katotth": "UA73060150080085096"
+              },
+              {
+                "id": "48471",
+                "name": "Черепківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48471",
+                "katotth": "UA73060150090055948"
+              }
+            ]
+          },
+          {
+            "id": "4883",
+            "name": "Горішньошеровецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4883",
+            "katotth": "UA73060170000031531",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48472",
+                "name": "Васловівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48472",
+                "katotth": "UA73060170020026350"
+              },
+              {
+                "id": "48473",
+                "name": "Горішні Шерівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48473",
+                "katotth": "UA73060170010067709"
+              },
+              {
+                "id": "48474",
+                "name": "Задубрівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48474",
+                "katotth": "UA73060170030023617"
+              },
+              {
+                "id": "48475",
+                "name": "Шубранець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48475",
+                "katotth": "UA73060170040035158"
+              }
+            ]
+          },
+          {
+            "id": "4884",
+            "name": "Заставнівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4884",
+            "katotth": "UA73060190000043347",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48476",
+                "name": "Вербівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48476",
+                "katotth": "UA73060190020045355"
+              },
+              {
+                "id": "48477",
+                "name": "Заставна",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48477",
+                "katotth": "UA73060190010067621"
+              },
+              {
+                "id": "48478",
+                "name": "Малий Кучурів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48478",
+                "katotth": "UA73060190030043411"
+              }
+            ]
+          },
+          {
+            "id": "4885",
+            "name": "Кадубовецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4885",
+            "katotth": "UA73060210000010691",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48479",
+                "name": "Василів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48479",
+                "katotth": "UA73060210020066594"
+              },
+              {
+                "id": "48480",
+                "name": "Кадубівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48480",
+                "katotth": "UA73060210010047346"
+              },
+              {
+                "id": "48481",
+                "name": "Кулівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48481",
+                "katotth": "UA73060210030069097"
+              },
+              {
+                "id": "48482",
+                "name": "Репужинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48482",
+                "katotth": "UA73060210040065763"
+              },
+              {
+                "id": "48483",
+                "name": "Хрещатик",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48483",
+                "katotth": "UA73060210050035394"
+              },
+              {
+                "id": "48484",
+                "name": "Чуньків",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48484",
+                "katotth": "UA73060210060097604"
+              }
+            ]
+          },
+          {
+            "id": "4886",
+            "name": "Кам'янецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4886",
+            "katotth": "UA73060230000024500",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48485",
+                "name": "Багринівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48485",
+                "katotth": "UA73060230020089449"
+              },
+              {
+                "id": "48486",
+                "name": "Біла Криниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48486",
+                "katotth": "UA73060230030017017"
+              },
+              {
+                "id": "48487",
+                "name": "Кам'янка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48487",
+                "katotth": "UA73060230010030556"
+              },
+              {
+                "id": "48488",
+                "name": "Старий Вовчинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48488",
+                "katotth": "UA73060230040055935"
+              }
+            ]
+          },
+          {
+            "id": "4887",
+            "name": "Кам'янська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4887",
+            "katotth": "UA73060250000049790",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48489",
+                "name": "Глибочок",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48489",
+                "katotth": "UA73060250020024035"
+              },
+              {
+                "id": "48490",
+                "name": "Дубове",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48490",
+                "katotth": "UA73060250030044068"
+              },
+              {
+                "id": "48491",
+                "name": "Заволока",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48491",
+                "katotth": "UA73060250040078880"
+              },
+              {
+                "id": "48492",
+                "name": "Кам'яна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48492",
+                "katotth": "UA73060250010088981"
+              },
+              {
+                "id": "48493",
+                "name": "Михальча",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48493",
+                "katotth": "UA73060250050067051"
+              },
+              {
+                "id": "48494",
+                "name": "Спаська",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48494",
+                "katotth": "UA73060250060056130"
+              },
+              {
+                "id": "48495",
+                "name": "Старі Бросківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48495",
+                "katotth": "UA73060250070059063"
+              }
+            ]
+          },
+          {
+            "id": "4888",
+            "name": "Карапачівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4888",
+            "katotth": "UA73060270000016588",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48496",
+                "name": "Йорданешти",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48496",
+                "katotth": "UA73060270010083336"
+              },
+              {
+                "id": "48497",
+                "name": "Карапчів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48497",
+                "katotth": "UA73060270020022643"
+              }
+            ]
+          },
+          {
+            "id": "4893",
+            "name": "Кострижівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4893",
+            "katotth": "UA73060310000074904",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48557",
+                "name": "Звенячин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48557",
+                "katotth": "UA73060310020074527"
+              },
+              {
+                "id": "48558",
+                "name": "Йосипівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48558",
+                "katotth": "UA73060310030046008"
+              },
+              {
+                "id": "48559",
+                "name": "Кострижівка",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48559",
+                "katotth": "UA73060310010028211"
+              },
+              {
+                "id": "48560",
+                "name": "Прилипче",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48560",
+                "katotth": "UA73060310040047521"
+              },
+              {
+                "id": "48561",
+                "name": "Степанівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48561",
+                "katotth": "UA73060310050021983"
+              }
+            ]
+          },
+          {
+            "id": "4894",
+            "name": "Красноїльська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4894",
+            "katotth": "UA73060330000039245",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48562",
+                "name": "Красноїльськ",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48562",
+                "katotth": "UA73060330010012519"
+              },
+              {
+                "id": "48563",
+                "name": "Стара Красношора",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48563",
+                "katotth": "UA73060330020060400"
+              }
+            ]
+          },
+          {
+            "id": "4890",
+            "name": "Кіцманська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4890",
+            "katotth": "UA73060290000034305",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48528",
+                "name": "Іванківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48528",
+                "katotth": "UA73060290060019262"
+              },
+              {
+                "id": "48524",
+                "name": "Валява",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48524",
+                "katotth": "UA73060290020054558"
+              },
+              {
+                "id": "48525",
+                "name": "Витилівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48525",
+                "katotth": "UA73060290030095550"
+              },
+              {
+                "id": "48526",
+                "name": "Гаврилівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48526",
+                "katotth": "UA73060290040079651"
+              },
+              {
+                "id": "48527",
+                "name": "Давидівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48527",
+                "katotth": "UA73060290050023315"
+              },
+              {
+                "id": "48530",
+                "name": "Кліводин",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48530",
+                "katotth": "UA73060290070047281"
+              },
+              {
+                "id": "48529",
+                "name": "Кіцмань",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48529",
+                "katotth": "UA73060290010095467"
+              },
+              {
+                "id": "48531",
+                "name": "Лашківка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48531",
+                "katotth": "UA73060290080031355"
+              },
+              {
+                "id": "48532",
+                "name": "Ошихліби",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48532",
+                "katotth": "UA73060290090062034"
+              },
+              {
+                "id": "48533",
+                "name": "Суховерхів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48533",
+                "katotth": "UA73060290100014545"
+              },
+              {
+                "id": "48534",
+                "name": "Шипинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48534",
+                "katotth": "UA73060290110013471"
+              }
+            ]
+          },
+          {
+            "id": "4896",
+            "name": "Магальська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4896",
+            "katotth": "UA73060350000057190",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48571",
+                "name": "Буда",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48571",
+                "katotth": "UA73060350020067312"
+              },
+              {
+                "id": "48572",
+                "name": "Магала",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48572",
+                "katotth": "UA73060350010055735"
+              },
+              {
+                "id": "48573",
+                "name": "Остриця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48573",
+                "katotth": "UA73060350030053048"
+              },
+              {
+                "id": "48574",
+                "name": "Прут",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48574",
+                "katotth": "UA73060350040022040"
+              },
+              {
+                "id": "48575",
+                "name": "Рідківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48575",
+                "katotth": "UA73060350050027150"
+              }
+            ]
+          },
+          {
+            "id": "4897",
+            "name": "Мамаївська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4897",
+            "katotth": "UA73060370000059595",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48577",
+                "name": "Бурдей",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48577",
+                "katotth": "UA73060370040021053"
+              },
+              {
+                "id": "48576",
+                "name": "Біла",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48576",
+                "katotth": "UA73060370030092824"
+              },
+              {
+                "id": "48578",
+                "name": "Глиниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48578",
+                "katotth": "UA73060370050012461"
+              },
+              {
+                "id": "48579",
+                "name": "Драчинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48579",
+                "katotth": "UA73060370060050777"
+              },
+              {
+                "id": "48580",
+                "name": "Дубівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48580",
+                "katotth": "UA73060370070051632"
+              },
+              {
+                "id": "48581",
+                "name": "Коростувата",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48581",
+                "katotth": "UA73060370080023541"
+              },
+              {
+                "id": "48582",
+                "name": "Лужани",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48582",
+                "katotth": "UA73060370020053292"
+              },
+              {
+                "id": "48583",
+                "name": "Мамаївці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48583",
+                "katotth": "UA73060370010090405"
+              },
+              {
+                "id": "48584",
+                "name": "Новий Киселів",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48584",
+                "katotth": "UA73060370090097306"
+              },
+              {
+                "id": "48585",
+                "name": "Нові Драчинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48585",
+                "katotth": "UA73060370100041186"
+              },
+              {
+                "id": "48586",
+                "name": "Ревне",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48586",
+                "katotth": "UA73060370110097448"
+              },
+              {
+                "id": "48587",
+                "name": "Стрілецький Кут",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48587",
+                "katotth": "UA73060370120049066"
+              }
+            ]
+          },
+          {
+            "id": "4900",
+            "name": "Неполоковецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4900",
+            "katotth": "UA73060390000017602",
+            "type": "селищна",
+            "settlements": [
+              {
+                "id": "48603",
+                "name": "Берегомет",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48603",
+                "katotth": "UA73060390020084173"
+              },
+              {
+                "id": "48604",
+                "name": "Клокічка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48604",
+                "katotth": "UA73060390030098946"
+              },
+              {
+                "id": "48605",
+                "name": "Неполоківці",
+                "type": "селище",
+                "url": "https://decentralization.ua/locality/48605",
+                "katotth": "UA73060390010012103"
+              },
+              {
+                "id": "48606",
+                "name": "Оршівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48606",
+                "katotth": "UA73060390040058879"
+              },
+              {
+                "id": "48607",
+                "name": "П'ядиківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48607",
+                "katotth": "UA73060390050010789"
+              },
+              {
+                "id": "48608",
+                "name": "Реваківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48608",
+                "katotth": "UA73060390060069573"
+              }
+            ]
+          },
+          {
+            "id": "4902",
+            "name": "Новоселицька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4902",
+            "katotth": "UA73060410000077092",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48610",
+                "name": "Берестя",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48610",
+                "katotth": "UA73060410020086313"
+              },
+              {
+                "id": "48611",
+                "name": "Динівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48611",
+                "katotth": "UA73060410030043685"
+              },
+              {
+                "id": "48612",
+                "name": "Довжок",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48612",
+                "katotth": "UA73060410040022847"
+              },
+              {
+                "id": "48613",
+                "name": "Зелений Гай",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48613",
+                "katotth": "UA73060410050057030"
+              },
+              {
+                "id": "48614",
+                "name": "Котелеве",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48614",
+                "katotth": "UA73060410060098025"
+              },
+              {
+                "id": "48615",
+                "name": "Малинівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48615",
+                "katotth": "UA73060410070048989"
+              },
+              {
+                "id": "48616",
+                "name": "Маршинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48616",
+                "katotth": "UA73060410080064009"
+              },
+              {
+                "id": "48617",
+                "name": "Новоселиця",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48617",
+                "katotth": "UA73060410010023503"
+              },
+              {
+                "id": "48618",
+                "name": "Ревківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48618",
+                "katotth": "UA73060410090063917"
+              },
+              {
+                "id": "48619",
+                "name": "Рингач",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48619",
+                "katotth": "UA73060410100063213"
+              },
+              {
+                "id": "48620",
+                "name": "Рокитне",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48620",
+                "katotth": "UA73060410110047308"
+              },
+              {
+                "id": "48621",
+                "name": "Слобода",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48621",
+                "katotth": "UA73060410120062232"
+              },
+              {
+                "id": "48622",
+                "name": "Строїнці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48622",
+                "katotth": "UA73060410130074461"
+              },
+              {
+                "id": "48623",
+                "name": "Шишківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48623",
+                "katotth": "UA73060410140041293"
+              }
+            ]
+          },
+          {
+            "id": "4903",
+            "name": "Острицька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4903",
+            "katotth": "UA73060430000042676",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48624",
+                "name": "Банчени",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48624",
+                "katotth": "UA73060430020086760"
+              },
+              {
+                "id": "48625",
+                "name": "Велика Буда",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48625",
+                "katotth": "UA73060430030024724"
+              },
+              {
+                "id": "48626",
+                "name": "Годинівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48626",
+                "katotth": "UA73060430040058799"
+              },
+              {
+                "id": "48627",
+                "name": "Горбова",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48627",
+                "katotth": "UA73060430050054014"
+              },
+              {
+                "id": "48628",
+                "name": "Луковиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48628",
+                "katotth": "UA73060430060064819"
+              },
+              {
+                "id": "48629",
+                "name": "Мала Буда",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48629",
+                "katotth": "UA73060430070086633"
+              },
+              {
+                "id": "48630",
+                "name": "Маморниця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48630",
+                "katotth": "UA73060430080029019"
+              },
+              {
+                "id": "48631",
+                "name": "Маморниця Вама",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48631",
+                "katotth": "UA73060430090050842"
+              },
+              {
+                "id": "48632",
+                "name": "Остриця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48632",
+                "katotth": "UA73060430010048116"
+              },
+              {
+                "id": "48633",
+                "name": "Цурень",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48633",
+                "katotth": "UA73060430100065686"
+              }
+            ]
+          },
+          {
+            "id": "4904",
+            "name": "Петровецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4904",
+            "katotth": "UA73060450000099566",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48634",
+                "name": "Аршиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48634",
+                "katotth": "UA73060450020063987"
+              },
+              {
+                "id": "48635",
+                "name": "Верхні Петрівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48635",
+                "katotth": "UA73060450010084322"
+              },
+              {
+                "id": "48636",
+                "name": "Нижні Петрівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48636",
+                "katotth": "UA73060450030053836"
+              }
+            ]
+          },
+          {
+            "id": "4909",
+            "name": "Ставчанська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4909",
+            "katotth": "UA73060470000040033",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48696",
+                "name": "Малятинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48696",
+                "katotth": "UA73060470020011414"
+              },
+              {
+                "id": "48697",
+                "name": "Ставчани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48697",
+                "katotth": "UA73060470010095713"
+              },
+              {
+                "id": "48698",
+                "name": "Хлівище",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48698",
+                "katotth": "UA73060470030044348"
+              },
+              {
+                "id": "48699",
+                "name": "Шишківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48699",
+                "katotth": "UA73060470040052097"
+              },
+              {
+                "id": "48700",
+                "name": "Южинець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48700",
+                "katotth": "UA73060470050077326"
+              }
+            ]
+          },
+          {
+            "id": "4910",
+            "name": "Сторожинецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4910",
+            "katotth": "UA73060490000033679",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48701",
+                "name": "Банилів-Підгірний",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48701",
+                "katotth": "UA73060490020044899"
+              },
+              {
+                "id": "48702",
+                "name": "Бобівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48702",
+                "katotth": "UA73060490030061503"
+              },
+              {
+                "id": "48703",
+                "name": "Давидівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48703",
+                "katotth": "UA73060490040010248"
+              },
+              {
+                "id": "48704",
+                "name": "Дібрівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48704",
+                "katotth": "UA73060490050057024"
+              },
+              {
+                "id": "48705",
+                "name": "Заболоття",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48705",
+                "katotth": "UA73060490060070288"
+              },
+              {
+                "id": "48706",
+                "name": "Зруб-Комарівський",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48706",
+                "katotth": "UA73060490070057659"
+              },
+              {
+                "id": "48707",
+                "name": "Комарівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48707",
+                "katotth": "UA73060490080072171"
+              },
+              {
+                "id": "48708",
+                "name": "Косованка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48708",
+                "katotth": "UA73060490090094049"
+              },
+              {
+                "id": "48709",
+                "name": "Костинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48709",
+                "katotth": "UA73060490100087453"
+              },
+              {
+                "id": "48710",
+                "name": "Нова Жадова",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48710",
+                "katotth": "UA73060490110057748"
+              },
+              {
+                "id": "48711",
+                "name": "Нові Бросківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48711",
+                "katotth": "UA73060490120067303"
+              },
+              {
+                "id": "48712",
+                "name": "Панка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48712",
+                "katotth": "UA73060490130028013"
+              },
+              {
+                "id": "48713",
+                "name": "Ропча",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48713",
+                "katotth": "UA73060490140014219"
+              },
+              {
+                "id": "48714",
+                "name": "Слобода-Комарівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48714",
+                "katotth": "UA73060490150063681"
+              },
+              {
+                "id": "48715",
+                "name": "Стара Жадова",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48715",
+                "katotth": "UA73060490160032710"
+              },
+              {
+                "id": "48716",
+                "name": "Сторожинець",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48716",
+                "katotth": "UA73060490010033552"
+              },
+              {
+                "id": "48717",
+                "name": "Ясени",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48717",
+                "katotth": "UA73060490170085455"
+              }
+            ]
+          },
+          {
+            "id": "4911",
+            "name": "Сучевенська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4911",
+            "katotth": "UA73060510000025800",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48718",
+                "name": "Корчівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48718",
+                "katotth": "UA73060510020054961"
+              },
+              {
+                "id": "48719",
+                "name": "Купка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48719",
+                "katotth": "UA73060510030046766"
+              },
+              {
+                "id": "48720",
+                "name": "Петричанка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48720",
+                "katotth": "UA73060510040031739"
+              },
+              {
+                "id": "48721",
+                "name": "Просикуряни",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48721",
+                "katotth": "UA73060510050070439"
+              },
+              {
+                "id": "48722",
+                "name": "Просіка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48722",
+                "katotth": "UA73060510060081540"
+              },
+              {
+                "id": "48723",
+                "name": "Сучевени",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48723",
+                "katotth": "UA73060510010083621"
+              }
+            ]
+          },
+          {
+            "id": "4912",
+            "name": "Тарашанська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4912",
+            "katotth": "UA73060530000099979",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48724",
+                "name": "Поляна",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48724",
+                "katotth": "UA73060530020038107"
+              },
+              {
+                "id": "48725",
+                "name": "Привороки",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48725",
+                "katotth": "UA73060530030053897"
+              },
+              {
+                "id": "48726",
+                "name": "Станівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48726",
+                "katotth": "UA73060530040037752"
+              },
+              {
+                "id": "48727",
+                "name": "Тарашани",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48727",
+                "katotth": "UA73060530010058172"
+              },
+              {
+                "id": "48728",
+                "name": "Турятка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48728",
+                "katotth": "UA73060530050040211"
+              }
+            ]
+          },
+          {
+            "id": "4913",
+            "name": "Тереблеченська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4913",
+            "katotth": "UA73060550000052402",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48729",
+                "name": "Буківка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48729",
+                "katotth": "UA73060550020020368"
+              },
+              {
+                "id": "48730",
+                "name": "Верхні Cинівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48730",
+                "katotth": ""
+              },
+              {
+                "id": "48731",
+                "name": "Горбівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48731",
+                "katotth": "UA73060550040023938"
+              },
+              {
+                "id": "48732",
+                "name": "Нижні Синівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48732",
+                "katotth": "UA73060550050080352"
+              },
+              {
+                "id": "48733",
+                "name": "Тереблече",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48733",
+                "katotth": "UA73060550010087926"
+              }
+            ]
+          },
+          {
+            "id": "4914",
+            "name": "Топорівська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4914",
+            "katotth": "UA73060570000058573",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48734",
+                "name": "Бочківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48734",
+                "katotth": "UA73060570020060822"
+              },
+              {
+                "id": "48735",
+                "name": "Грозинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48735",
+                "katotth": "UA73060570030060530"
+              },
+              {
+                "id": "48736",
+                "name": "Колінківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48736",
+                "katotth": "UA73060570040078285"
+              },
+              {
+                "id": "48737",
+                "name": "Топорівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48737",
+                "katotth": "UA73060570010080677"
+              }
+            ]
+          },
+          {
+            "id": "4917",
+            "name": "Чагорська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4917",
+            "katotth": "UA73060590000095243",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48762",
+                "name": "Кут",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48762",
+                "katotth": "UA73060590020037751"
+              },
+              {
+                "id": "48763",
+                "name": "Луковиця",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48763",
+                "katotth": "UA73060590030029974"
+              },
+              {
+                "id": "48764",
+                "name": "Молодія",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48764",
+                "katotth": "UA73060590040083952"
+              },
+              {
+                "id": "48765",
+                "name": "Чагор",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48765",
+                "katotth": "UA73060590010055589"
+              }
+            ]
+          },
+          {
+            "id": "4918",
+            "name": "Чернівецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4918",
+            "katotth": "UA73060610000066784",
+            "type": "міська",
+            "settlements": [
+              {
+                "id": "48766",
+                "name": "Коровія",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48766",
+                "katotth": "UA73060610020031837"
+              },
+              {
+                "id": "48767",
+                "name": "Чернівці",
+                "type": "місто",
+                "url": "https://decentralization.ua/locality/48767",
+                "katotth": "UA73060610010033137"
+              },
+              {
+                "id": "48768",
+                "name": "Чорнівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48768",
+                "katotth": "UA73060610030097091"
+              }
+            ]
+          },
+          {
+            "id": "4919",
+            "name": "Чудейська територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4919",
+            "katotth": "UA73060630000091311",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48770",
+                "name": "Їжівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48770",
+                "katotth": "UA73060630030049866"
+              },
+              {
+                "id": "48769",
+                "name": "Буденець",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48769",
+                "katotth": "UA73060630020087121"
+              },
+              {
+                "id": "48771",
+                "name": "Нова Красношора",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48771",
+                "katotth": "UA73060630040011560"
+              },
+              {
+                "id": "48772",
+                "name": "Череш",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48772",
+                "katotth": "UA73060630050011615"
+              },
+              {
+                "id": "48773",
+                "name": "Чудей",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48773",
+                "katotth": "UA73060630010078481"
+              }
+            ]
+          },
+          {
+            "id": "4920",
+            "name": "Юрковецька територіальна громада",
+            "url": "https://decentralization.ua/newgromada/4920",
+            "katotth": "UA73060650000012771",
+            "type": "сільська",
+            "settlements": [
+              {
+                "id": "48774",
+                "name": "Баламутівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48774",
+                "katotth": "UA73060650020064703"
+              },
+              {
+                "id": "48775",
+                "name": "Боянчук",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48775",
+                "katotth": "UA73060650030082072"
+              },
+              {
+                "id": "48776",
+                "name": "Горошівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48776",
+                "katotth": "UA73060650040069855"
+              },
+              {
+                "id": "48777",
+                "name": "Добринівці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48777",
+                "katotth": "UA73060650050046740"
+              },
+              {
+                "id": "48778",
+                "name": "Погорілівка",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48778",
+                "katotth": "UA73060650060017825"
+              },
+              {
+                "id": "48779",
+                "name": "Ржавинці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48779",
+                "katotth": "UA73060650070017042"
+              },
+              {
+                "id": "48780",
+                "name": "Чорний Потік",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48780",
+                "katotth": "UA73060650080054412"
+              },
+              {
+                "id": "48781",
+                "name": "Юрківці",
+                "type": "село",
+                "url": "https://decentralization.ua/locality/48781",
+                "katotth": "UA73060650010058296"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

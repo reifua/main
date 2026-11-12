@@ -1,0 +1,514 @@
+/* FormEngine skin for the Tailwind theme.
+ *
+ * Lives with its theme (themes/tailwind.js) so the theme is markup + skin, and
+ * any site that renders `theme: tailwind` gets these rules with no site-side
+ * wiring. shell.js inlines this file into the baked fragment, so it ships with
+ * the form and needs no <link>.
+ *
+ * The theme paints controls with Tailwind utilities, but a few things cannot be
+ * expressed as utilities (Tailwind v2 has no `file:`/`accent-*` variants), and
+ * the JS glue builds some DOM with plain hook classes. This file supplies those
+ * rules.
+ *
+ * Everything here is scoped to hooks the form engine emits, so it never touches
+ * the rest of the site (e.g. the site's own filter form keeps its own look).
+ */
+
+/* ---- hidden attribute ---------------------------------------------------
+ * Tailwind's preflight sets `[hidden]{display:none}` at low precedence, so a
+ * utility such as `.block` (also used by the controls) overrides it and the
+ * element stays visible. Bootstrap's reboot uses `!important`, which is why
+ * eg. the search-mode `<select>` disappears there. Mirror that so `hidden`
+ * always wins - except on the feedback blocks below, whose visibility the glue
+ * drives with an inline `display` that must be able to win over `hidden`. */
+[hidden]:not(.valid-feedback):not(.invalid-feedback) {
+  display: none !important;
+}
+
+/* ---- positioning hook ---------------------------------------------------
+ * page-form.js walks to `closest('.position-relative')` for the search chrome
+ * (page-form.js:786) and the theme hangs the magnifier, the clear button and
+ * the dropdown `absolute` off that same wrapper. Bootstrap ships
+ * `.position-relative` as a utility; on this theme it is a bare hook, so the
+ * skin has to supply the rule or the chrome anchors to the wrong ancestor. */
+.position-relative {
+  position: relative;
+}
+
+/* ---- feedback blocks ----------------------------------------------------
+ * The glue shows/hides these with an inline `display` (binder.js:253/260,
+ * page-form.js:705/717) and never touches their `hidden` attribute, so they
+ * start hidden by class - not by `hidden` - or the `!important` above would
+ * pin them shut forever. */
+.valid-feedback,
+.invalid-feedback {
+  display: none;
+}
+
+/* ---- validation state (binder adds .is-invalid/.is-valid) ---------------- */
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid,
+.custom-file.is-invalid .custom-file-label {
+  border-color: #dc3545;
+}
+input.is-valid,
+select.is-valid,
+textarea.is-valid,
+.custom-file.is-valid .custom-file-label {
+  border-color: #28a745;
+}
+input.is-invalid:focus,
+select.is-invalid:focus,
+textarea.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+input.is-valid:focus,
+select.is-valid:focus,
+textarea.is-valid:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* ---- validation icons (bootstrap4 parity) ------------------------------
+ * Bootstrap's .form-control.is-valid/.is-invalid draws a green check /
+ * red exclamation inside the control (bootstrap.min.css data-URIs). The
+ * Tailwind site ships no bootstrap.css, so the very same data-URIs are
+ * spelled out here for every validated control. Placement mirrors Bootstrap
+ * (right edge, clear of the text); the address controls below keep their own
+ * overlay-aware placement and override this. */
+input.is-valid,
+select.is-valid,
+textarea.is-valid {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+  background-size: 1rem calc(1em);
+  padding-right: calc(1.5em + 0.75rem);
+}
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+  background-size: 1rem calc(1em);
+  padding-right: calc(1.5em + 0.75rem);
+}
+
+/* ---- validation icons on the address controls (bootstrap4 parity) --------
+ * Bootstrap's .form-control.is-invalid/.is-valid draws a cross/check inside the
+ * control and shifts the magnifier and clear button left. The address search
+ * inputs carry their own overlay chrome, so mirror that placement here: the
+ * icon sits at the right edge and the overlays step aside. A select keeps its
+ * native down-arrow at the right edge, so its icon is nudged just enough to
+ * clear that arrow. */
+input.location-search.is-invalid,
+input.location-search.is-valid,
+input.autocomplete-search.is-invalid,
+input.autocomplete-search.is-valid {
+  padding-right: calc(1.5em + 2.25rem);
+  background-position: right 0.5rem center;
+}
+select.is-valid,
+select.is-invalid {
+  background-position: right calc(0.375em + 0.475rem) center;
+}
+input.location-search.is-invalid ~ .location-search-icon,
+input.location-search.is-valid ~ .location-search-icon,
+input.autocomplete-search.is-invalid ~ .autocomplete-search-icon,
+input.autocomplete-search.is-valid ~ .autocomplete-search-icon {
+  right: 2rem;
+}
+input.location-search.is-invalid ~ .btn-clear,
+input.location-search.is-valid ~ .btn-clear,
+input.autocomplete-search.is-invalid ~ .autocomplete-clear,
+input.autocomplete-search.is-valid ~ .autocomplete-clear {
+  right: 1.65rem;
+}
+
+/* ---- native controls the utilities cannot reach ------------------------- */
+/* Tailwind v2 has no `accent-*` variant: radio/checkbox tint. */
+.engine-accent {
+  accent-color: #2563eb;
+}
+/* Tailwind v2 has no `file:` variant: the native file input, however, is
+ * hidden behind the .custom-file box below, so its own button never shows. */
+
+/* ---- file field: Bootstrap .custom-file parity --------------------------
+ * One bordered box on the full width: the text on the left ("Оберіть
+ * файли..." / "Вибрано N файлів"), the grey "Огляд" button pinned to the
+ * right edge, and - when set - the ✗/✓ validation glyph and the × clear
+ * button inside the box, left of "Огляд" in a tight row (× → ✗/✓).
+ * Tailwind v2 ships no such component (the forms plugin only resets
+ * [type=file]), so the theme markup emits the same hooks and this block
+ * dresses them the Bootstrap way. The markup's own utilities (mt-1, block,
+ * text-xs, text-gray-500 on the label) are overridden by specificity. */
+.text-input-wrapper { position: relative; }
+.text-input-wrapper > .custom-file {
+  position: relative;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  margin-bottom: 0;
+}
+/* keep the native control as the click/keyboard target, just invisible */
+.custom-file .form-file {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+/* the visible box - a label rendered as a bordered control on the full width.
+ * The right padding reserves the room the "Огляд" button and the actions row
+ * need, so the text never runs under them. Vertical padding is dropped and the
+ * height rides on line-height so the text sits dead-centre without a flex
+ * container (which would kill text-overflow). */
+.custom-file > .custom-file-label {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  margin: 0;
+  padding: 0 6.5rem 0 0.75rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: calc(1.5em + 0.75rem);
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #6b7280;
+  border-radius: 0.25rem;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+/* the "Огляд" button inside the box, inset 1px so the box border shows around
+ * it; the vertical line separates it from the text */
+.custom-file > .custom-file-label::after {
+  content: "Огляд";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #e9ecef;
+  border-left: 1px solid #6b7280;
+  border-radius: 0 0.2rem 0.2rem 0;
+}
+/* the ✗/✓ glyph and the × button, in a tight row left of "Огляд" */
+.custom-file-actions {
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.custom-file-icon {
+  flex: none;
+  width: calc(0.75em + 0.375rem);
+  height: calc(0.75em + 0.375rem);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+}
+.custom-file.is-invalid .custom-file-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+}
+.custom-file.is-valid .custom-file-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+}
+/* focus ring on the box, Bootstrap-like */
+.custom-file .form-file:focus ~ .custom-file-label {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.custom-file.is-invalid .custom-file-label {
+  border-color: #dc3545;
+}
+.custom-file.is-invalid .form-file:focus ~ .custom-file-label {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.custom-file.is-valid .custom-file-label {
+  border-color: #28a745;
+}
+.custom-file.is-valid .form-file:focus ~ .custom-file-label {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+/* the inner "Огляд" divider follows the box colour on validation, else it
+ * would stay grey while the surrounding border turns red/green */
+.custom-file.is-invalid > .custom-file-label::after {
+  border-left-color: #dc3545;
+}
+.custom-file.is-valid > .custom-file-label::after {
+  border-left-color: #28a745;
+}
+/* the × button now lives in the actions row: drop the theme's absolute chrome
+ * and give it the plain leaf look the bootstrap4 theme uses */
+.custom-file-actions .btn-clear {
+  position: static;
+  transform: none;
+  line-height: 1;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: #6c757d;
+}
+.custom-file-actions .btn-clear:hover,
+.custom-file-actions .btn-clear:focus {
+  color: #343a40;
+}
+
+/* ---- clear ("×") button ------------------------------------------------- */
+/* Tailwind v2's `-translate-y-1/2` only sets `--tw-translate-y`; the transform
+ * itself comes from the separate `.transform` class the theme does not emit on
+ * these overlays, so the `top-1/2 -translate-y-1/2` utilities leave them half a
+ * height too low. Center the overlay chrome here (bootstrap4.css:94-107 does it
+ * with a plain `transform: translateY(-50%)`). */
+.btn-clear,
+.location-search-icon,
+.autocomplete-search-icon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* a textarea is tall: keep its × near the top-right instead of mid-control
+ * (bootstrap4.css:122-125). */
+textarea ~ .btn-clear {
+  top: 10px;
+  transform: none;
+}
+.text-input-wrapper > .is-invalid ~ .btn-clear,
+.text-input-wrapper > .is-valid ~ .btn-clear {
+  right: 1.65rem;
+}
+.btn-clear[hidden] {
+  display: none !important;
+}
+
+/* ---- autocomplete / location dropdown results --------------------------- */
+/* The glue creates each result as `div.dropdown-item` (".highlighted" on
+ * keyboard focus); only the container is styled by a utility. */
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #4a5568;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.dropdown-item:hover,
+.dropdown-item.highlighted {
+  background-color: #f7fafc;
+  color: #1a202c;
+}
+/* Semantic secondary-text hooks the glue writes inside a result. They replace
+ * Bootstrap's `text-muted`/`small` so the same DOM works on this theme. */
+.dropdown-item-info {
+  color: #6b7280;
+}
+.dropdown-item-tail {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+.dropdown-item-empty {
+  color: #6b7280;
+}
+/* The legacy hook marking a result that carries its ancestor tail; the site
+ * SCSS makes it wrap on the Bootstrap side, so mirror that here. */
+.searchable-dropdown-item {
+  white-space: normal;
+}
+
+/* ---- checkbox_group selected state (binder toggles `.active`) ------------ */
+[data-toggle-for].active {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+/* ---- wizard step chrome (sizes match the Bootstrap theme's style.html) --- */
+.step-indicator {
+  margin-bottom: 1rem;
+}
+.step-indicator .step-number {
+  width: 36px;
+  height: 36px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.step-indicator .step-dot {
+  width: 10px;
+  height: 10px;
+}
+.step-title {
+  font-weight: 600;
+  color: #212529;
+}
+/* The wizard gates next/submit with the `disabled` attribute once a step is
+ * valid; match Bootstrap's `.btn:disabled` (opacity .65, no pointer) so a
+ * locked button never reads as clickable. */
+[data-step-next]:disabled,
+[data-step-prev]:disabled,
+[data-submit]:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ---- file previews (page-form.js builds the DOM with these hooks) ------- */
+.file-previews {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.file-preview {
+  max-width: 100%;
+}
+.file-preview-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.file-preview-row-valid {
+  border-color: #28a745;
+}
+.file-preview-row-invalid {
+  border-color: #dc3545;
+}
+.file-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  flex-shrink: 0;
+}
+.file-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.file-thumb-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  color: #4b5563;
+  border-radius: 4px;
+}
+.file-badge-compress {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #ffc107;
+  color: #212529;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+  z-index: 2;
+  line-height: 1.3;
+}
+/* The remove ("×") button is a `.file-remove` hook built by JS; pin it inside
+ * the thumbnail. */
+.file-thumb .file-remove {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  opacity: 1;
+  padding: 0;
+  border: 1px solid #dee2e6;
+}
+.file-thumb .file-remove:hover {
+  background: #fff;
+}
+.file-preview-notice {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  background: #fff3cd;
+  border: 1px solid #ffe69c;
+  border-radius: 4px;
+  color: #664d03;
+  font-size: 0.8rem;
+}
+.file-list-info {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8rem;
+}
+.file-list-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  line-height: 1.35;
+}
+.file-list-info-label {
+  color: #4b5563;
+  flex-shrink: 0;
+}
+.file-list-info-value {
+  color: #212529;
+  word-break: break-word;
+  font-weight: 500;
+  min-width: 0;
+}
+.file-list-info-value-over {
+  color: #dc3545 !important;
+}
+@media (max-width: 767.98px) {
+  .file-list-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .file-list-info-value {
+    width: 100%;
+  }
+}
+
+/* :focus-visible for accessibility - visible focus ring for keyboard navigation */
+.btn-clear:focus-visible,
+.file-remove:focus-visible,
+.step-number:focus-visible,
+.form-file:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Ensure step-number focus is visible when it receives focus via tabindex=-1 */
+.step-number:focus-visible {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
