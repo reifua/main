@@ -805,7 +805,7 @@ steps:
                   - name: location_widget
                     type: widgets
                     widget: location
-                    data: /assets/data/all.json
+                    data: /assets/data/if.json
                     settings:
                       method: two
                     label: Пошук населеного пункту
@@ -897,12 +897,12 @@ steps:
                         threshold: 6
                         minChars: 2
                         maxResults: 6
-                      - field: location_widget.settlement
-                        value: "30559"
-                        data: /assets/data/districts-30559.json
-                        mode: auto
-                        minChars: 2
-                        maxResults: 6
+                      #- field: location_widget.settlement
+                      #  value: "30559"
+                      #  data: /assets/data/districts-30559.json
+                      #  mode: auto
+                      #  minChars: 2
+                      #  maxResults: 6
                     required: false
                     #message: Введіть перші три українські літери у назві мікрорайону міста і виберіть ваш мікрорайон. Довідома, ці мікрорайони не є офіційним аміністративним поділом міста, то ж це поле не є обов'язковим
                     validation:
