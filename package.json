@@ -5,9 +5,9 @@
 	"scripts": {
 		"clean": "rimraf dist",
 		"start": "npm run serve",
-		"serve": "npm run clean && cross-env NODE_ENV=development eleventy --serve",
-		"watch": "npm run clean && cross-env NODE_ENV=development eleventy --watch",
-		"build": "npm run clean && cross-env NODE_ENV=production eleventy",
+		"serve": "npm run clean && node lib/build-css.mjs --serve",
+		"watch": "npm run clean && node lib/build-css.mjs --watch",
+		"build": "npm run clean && cross-env NODE_ENV=production node lib/build-css.mjs && cross-env NODE_ENV=production eleventy",
 		"debug": "DEBUG=Eleventy* npm run build",
 		"test": "node --test --test-force-exit --test-timeout=60000 --test-concurrency=2 \"test/*.test.mjs\"",
 		"validate": "node _form-engine/tools/validate-config.mjs src/_data/add-property.yml --strict",
@@ -28,21 +28,27 @@
 		"url": "https://github.com/reifua/main/issues"
 	},
 	"homepage": "https://github.com/reifua/main#readme",
+	"engines": {
+		"node": ">=20"
+	},
 	"devDependencies": {
-		"@11ty/eleventy": "^1.0.2",
+		"@11ty/eleventy": "^3.1.8",
 		"@tailwindcss/typography": "^0.3.1",
+		"autoprefixer": "^10.1.0",
+		"clean-css": "^4.2.3",
 		"cross-env": "^7.0.3",
 		"html-minifier": "^4.0.0",
+		"linkedom": "^0.18.13",
 		"luxon": "^2.5.2",
+		"postcss": "^8.4.6",
 		"rimraf": "^3.0.2",
-		"terser": "^4.8.1",
-		"linkedom": "^0.18.13"
+		"tailwindcss": "^2.2.19",
+		"terser": "^4.8.1"
 	},
 	"dependencies": {
 		"@11ty/eleventy-upgrade-help": "^1.0.1",
 		"@realtyua/form-engine": "^1.0.4",
 		"@tailwindcss/forms": "^0.2.1",
-		"eleventy-plugin-tailwindcss": "github:dafiulh/eleventy-plugin-tailwindcss",
 		"js-yaml": "^4.1.0"
 	}
 }

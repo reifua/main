@@ -1,14 +1,22 @@
-const pluginTailwind = require('eleventy-plugin-tailwindcss');
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-module.exports = (config) => {
-  config.addPlugin(pluginTailwind, {
-    src: 'src/assets/css/*',
-    // excludeNonCssFiles is bugged in 
-    // eleventy-plugin-tailwindcss@0.3.0 (git+ssh://git@github.com/dafiulh/eleventy-plugin-tailwindcss.git#c8b8d4d7419e2f5fcf4483b8556cce163bd4d0a9).
-    // See https://github.com/dafiulh/eleventy-plugin-tailwindcss/pull/34
-    excludeNonCssFiles: false
-  });
+import formEngine from '@realtyua/form-engine/adapters/eleventy/lib/form-engine.js';
 
+import site from './src/_data/site.js';
+import normalize from './lib/normalize.js';
+import readableDate from './lib/filters/readableDate.js';
+import minifyJs from './lib/filters/minifyJs.js';
+import minifyHtml from './lib/transforms/minifyHtml.js';
+import posts from './lib/collections/posts.js';
+import tagList from './lib/collections/tagList.js';
+import pagedPosts from './lib/collections/pagedPosts.js';
+import pagedPostsByTag from './lib/collections/pagedPostsByTag.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default (config) => {
   config.setDataDeepMerge(true);
 
   config.addPassthroughCopy('src/assets/img/**/*');
@@ -37,11 +45,8 @@ module.exports = (config) => {
   config.addWatchTarget('src/assets/js/');
 
   // Bake forms/<name>.yml into fragments and expose them as {% formApp "name" %}.
-  const path = require('path');
-  const site = require('./src/_data/site.js');
-  const { default: formEngine } = require('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
   // Pass site/dirs/engineDir so the async adapter has no await points and registers
-  // shortcodes/hooks synchronously (Eleventy 1.x does not support async config).
+  // shortcodes/hooks synchronously.
   formEngine(config, {
     site,
     siteDir: __dirname,
@@ -52,42 +57,42 @@ module.exports = (config) => {
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
 
-  const { normalizeLocation, normalizePrice } = require('./lib/normalize');
-  config.addFilter('readableDate', require('./lib/filters/readableDate'));
-  config.addFilter('minifyJs', require('./lib/filters/minifyJs'));
-  config.addNunjucksFilter("normalizeLocation", (loc) => normalizeLocation(loc));
-  config.addNunjucksFilter("normalizePrice", (price) => normalizePrice(price));
+  const { normalizeLocation, normalizePrice } = normalize;
+  config.addFilter('readableDate', readableDate);
+  config.addFilter('minifyJs', minifyJs);
+  config.addNunjucksFilter('normalizeLocation', (loc) => normalizeLocation(loc));
+  config.addNunjucksFilter('normalizePrice', (price) => normalizePrice(price));
 
-  config.addTransform('minifyHtml', require('./lib/transforms/minifyHtml'));
+  config.addTransform('minifyHtml', minifyHtml);
 
-  config.addCollection('posts', require('./lib/collections/posts'));
-  config.addCollection('tagList', require('./lib/collections/tagList'));
-  config.addCollection('pagedPosts', require('./lib/collections/pagedPosts'));
-  config.addCollection('pagedPostsByTag', require('./lib/collections/pagedPostsByTag'));
+  config.addCollection('posts', posts);
+  config.addCollection('tagList', tagList);
+  config.addCollection('pagedPosts', pagedPosts);
+  config.addCollection('pagedPostsByTag', pagedPostsByTag);
 
   // The difference between `uniq` and `unique` is that the former assumes the input collection
   // is already sorted, which lets it drop the duplicates in a more efficient way.
-  config.addNunjucksFilter("uniq", sortedColl => sortedColl.filter(function(item, pos, ar) {
+  config.addNunjucksFilter('uniq', sortedColl => sortedColl.filter(function(item, pos, ar) {
         if (pos === 0) { return true; }
         return item != ar[pos - 1];
       }));
-  config.addNunjucksFilter("unique", coll => [...new Set(coll)]);
-  config.addNunjucksFilter("flatten", coll => coll.flat());
-  config.addNunjucksFilter("mapToDbField", (coll, dbField) => coll.map(x => {
+  config.addNunjucksFilter('unique', coll => [...new Set(coll)]);
+  config.addNunjucksFilter('flatten', coll => coll.flat());
+  config.addNunjucksFilter('mapToDbField', (coll, dbField) => coll.map(x => {
     const val = x.data[dbField];
     if (dbField === 'location' && typeof val === 'object') {
       return normalizeLocation(val);
     }
     return val;
   }));
-  config.addNunjucksFilter("compact", arr => arr.filter(x => x != null && x !== ''));
-  config.addNunjucksFilter("oxfordJoin", coll => coll.length < 2 ? coll.join(", ") : coll.slice(0, -1).join(", ") + ", and " + coll[coll.length-1]);
-  config.addNunjucksFilter("isArray", coll => Array.isArray(coll));
-  const i18n = require('./src/_data/i18n.json');
+  config.addNunjucksFilter('compact', arr => arr.filter(x => x != null && x !== ''));
+  config.addNunjucksFilter('oxfordJoin', coll => coll.length < 2 ? coll.join(', ') : coll.slice(0, -1).join(', ') + ', and ' + coll[coll.length-1]);
+  config.addNunjucksFilter('isArray', coll => Array.isArray(coll));
+  const i18n = JSON.parse(readFileSync(path.join(__dirname, 'src', '_data', 'i18n.json'), 'utf8'));
   const reverseI18n = Object.fromEntries(Object.entries(i18n).map(([k, v]) => [v, k]));
-  config.addNunjucksFilter("t", function(value) { return i18n[value] || value; });
-  config.addNunjucksFilter("reverseT", function(value) { return reverseI18n[value] || value; });
-  config.addNunjucksFilter("slugify", function(value) {
+  config.addNunjucksFilter('t', function(value) { return i18n[value] || value; });
+  config.addNunjucksFilter('reverseT', function(value) { return reverseI18n[value] || value; });
+  config.addNunjucksFilter('slugify', function(value) {
     if (typeof value !== 'string') return '';
     const map = {
       'а':'a','б':'b','в':'v','г':'h','ґ':'g','д':'d','е':'e','є':'ie','ж':'zh',
@@ -103,26 +108,26 @@ module.exports = (config) => {
   });
 
   // JSON stringify with </script> escaping for safe use in <script type="application/json"> islands.
-  config.addNunjucksFilter("jsonify", function(value) {
+  config.addNunjucksFilter('jsonify', function(value) {
     return JSON.stringify(value)
       .replace(/</g, '\\u003c')
       .replace(/\u2028/g, '\\u2028')
       .replace(/\u2029/g, '\\u2029');
   });
 
-  config.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
+  config.addShortcode('currentYear', () => `${new Date().getFullYear()}`);
 
   config.setQuietMode(true);
 
   // Serve GitHub Pages site from a custom domain
-  config.addPassthroughCopy("CNAME");
+  config.addPassthroughCopy('CNAME');
 
   return {
     dir: {
       input: 'src',
       output: 'dist'
     },
-    pathPrefix: "/",
+    pathPrefix: '/',
     templateFormats: ['md', 'njk', 'html'],
     dataTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk'
