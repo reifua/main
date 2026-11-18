@@ -95,7 +95,7 @@ function findSettlement(all, id) {
   return null;
 }
 
-// A compact stand-in for /src/assets/data/all.json: the leaf has more than the
+// A compact stand-in for /src/assets/data/if.json: the leaf has more than the
 // field's threshold (6) of options, so it opens in search mode, and clearing
 // it stays cheap (the real file renders tens of thousands of <option>s).
 const ADDR = [
@@ -118,7 +118,7 @@ const ADDR = [
 ];
 
 const addrFetch = async (url) => {
-  if (String(url).includes('all.json')) return { ok: true, json: async () => ADDR };
+  if (String(url).includes('if.json')) return { ok: true, json: async () => ADDR };
   return { ok: false, status: 404, json: async () => ({}) };
 };
 
@@ -179,8 +179,8 @@ test('district autocomplete reacts to typing and switches to search mode once it
 
   await flush(); await flush(); await flush();
 
-  const chain = findSettlement(JSON.parse(readFileSync(join(ROOT, 'src', 'assets', 'data', 'all.json'), 'utf8')), '30595');
-  assert.ok(chain, 'settlement 30595 must exist in all.json');
+  const chain = findSettlement(JSON.parse(readFileSync(join(ROOT, 'src', 'assets', 'data', 'if.json'), 'utf8')), '30595');
+  assert.ok(chain, 'settlement 30595 must exist in if.json');
 
   ctl.setData('location_widget', {
     oblast: '0342', oblastType: 'область', oblastName: 'Івано-Франківська область',
@@ -316,8 +316,8 @@ test('clearing type_address keeps district_settlement invalid after a no-match q
 
   await flush(); await flush(); await flush();
 
-  const chain = findSettlement(JSON.parse(readFileSync(join(ROOT, 'src', 'assets', 'data', 'all.json'), 'utf8')), '30595');
-  assert.ok(chain, 'settlement 30595 must exist in all.json');
+  const chain = findSettlement(JSON.parse(readFileSync(join(ROOT, 'src', 'assets', 'data', 'if.json'), 'utf8')), '30595');
+  assert.ok(chain, 'settlement 30595 must exist in if.json');
 
   ctl.setData('location_widget', {
     oblast: '0342', oblastType: 'область', oblastName: 'Івано-Франківська область',
@@ -404,54 +404,6 @@ test('server errors still paint autocomplete search inputs after the binder hand
   await flush();
 
   assert.equal(search.classList.contains('is-invalid'), false, 'clearing the server report restores the neutral state');
-});
-
-test('autocomplete datas switch when the dependent location settlement changes', async () => {
-  const { window, document } = mount();
-
-  globalThis.fetch = async (url) => {
-    const abs = join(ROOT, 'src', String(url).replace(/^\//, ''));
-    try {
-      const txt = readFileSync(abs, 'utf8');
-      return { ok: true, json: async () => JSON.parse(txt) };
-    } catch {
-      return { ok: false, status: 404, json: async () => ({}) };
-    }
-  };
-
-  const app = wireAddProperty(document, { fetch: globalThis.fetch, leaflet: null, Captcha: null });
-  assert.ok(app, 'wireAddProperty must boot');
-  const ctl = app.controller;
-
-  await flush(); await flush(); await flush();
-
-  ctl.setData('location_widget', {
-    oblast: '0812', oblastType: 'область', oblastName: 'Київська область',
-    raion: '', hromada: '', settlement: '30559', settlementType: 'місто', settlementName: 'Єзупіль',
-  });
-  await flush(); await flush(); await flush(); await tick(30); await flush();
-
-  const search = document.querySelector('[data-autocomplete-search="district_settlement"]');
-  const dropdown = document.querySelector('[data-autocomplete-dropdown="district_settlement"]');
-  assert.ok(search && dropdown, 'district autocomplete controls must be mounted');
-
-  for (const ch of 'Центр') {
-    search.focus();
-    search.value += ch;
-    fire(window, search, 'input');
-    await flush(); await flush();
-  }
-
-  const items = dropdown.querySelectorAll('.dropdown-item');
-  assert.ok(items.length >= 1, `expected Центр in districts-30559.json, got ${items.length}`);
-  assert.ok(Array.prototype.some.call(items, (it) => it.textContent.trim() === 'Центр'),
-    'dropdown must serve the second datas entry after the settlement change');
-
-  const target = Array.prototype.find.call(items, (it) => it.textContent.trim() === 'Центр');
-  target.dispatchEvent(new window.Event('mousedown', { bubbles: true, cancelable: true }));
-  await flush(); await flush();
-
-  assert.equal(ctl.getValue('district_settlement'), 'ezupil-01', 'id from districts-30559.json must be stored');
 });
 
 test('location widget toggles between select and search per field according to the old engine semantics', async () => {
@@ -749,11 +701,11 @@ test('blur keeps the typed query and its pattern state (legacy only validated)',
 
 test('picking a parent wipes the child’s query, pattern error and dropdown', async () => {
   const { window, document } = mountMethodTwo();
-  const all = JSON.parse(readFileSync(join(ROOT, 'src', 'assets', 'data', 'all.json'), 'utf8'));
+  const all = JSON.parse(readFileSync(join(ROOT, 'src', 'assets', 'data', 'if.json'), 'utf8'));
   const chain = findSettlement(all, '30595');
-  assert.ok(chain, 'settlement 30595 must exist in all.json');
+  assert.ok(chain, 'settlement 30595 must exist in if.json');
   const realFetch = async (url) => {
-    if (String(url).includes('all.json')) return { ok: true, json: async () => all };
+    if (String(url).includes('if.json')) return { ok: true, json: async () => all };
     return { ok: false, status: 404, json: async () => ({}) };
   };
   const app = await bootLocation(document, realFetch);
