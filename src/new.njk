@@ -1,0 +1,16 @@
+---
+layout: default
+title: Подати безкоштовне оголошення про нерухомість
+description: Розмістити безкоштовне оголошення про продаж чи оренду нерухомості
+bootstrap: true
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="h3">{{ title }}</h1>
+      <p class="lead">Ми вам завжди раді! Будь ласка, будьте уважні, заповнюючи форму дійсними даними — це дуже важливо для вас.</p>
+      {% formApp "add-property" %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,540 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://realty.ua/form-engine/schema/form-config.schema.json",
+  "title": "Smart FORM config",
+  "description": "Declarative contract for a form. A renderer reads this and nothing else; it must not need Liquid, Jekyll or Eleventy knowledge. Bump `version` only for breaking changes and add a branch to the renderer for the old one.",
+  "type": "object",
+  "required": ["version", "id", "settings", "steps"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "description": "Schema major version. The renderer refuses anything it does not recognise.",
+      "const": 1
+    },
+    "id": {
+      "description": "Stable form identity. Used for DOM ids, the JSON filename and the Worker route.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "settings": { "$ref": "#/$defs/settings" },
+    "steps": {
+      "description": "Ordered wizard steps. Every field the form submits must be reachable from here.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/step" }
+    },
+    "submit": { "$ref": "#/$defs/submit" },
+    "behavior": { "$ref": "#/$defs/behavior" },
+    "theme": { "$ref": "#/$defs/theme" },
+    "chrome": { "$ref": "#/$defs/chrome" },
+    "rates": { "$ref": "#/$defs/rates" },
+    "captcha": { "$ref": "#/$defs/captcha" },
+    "assets": { "$ref": "#/$defs/assets" }
+  },
+  "$defs": {
+    "condition": {
+      "description": "One visibility/validation rule. `values` is an equality set, `value` is a comparison expression such as '>0', `except` negates.",
+      "type": "object",
+      "required": ["field"],
+      "additionalProperties": false,
+      "properties": {
+        "field": { "type": "string", "minLength": 1 },
+        "values": { "type": "array", "minItems": 1 },
+        "value": {
+          "description": "Comparison expression, evaluated against the field's current value."
+        },
+        "except": { "type": "array", "minItems": 1 },
+        "logic": {
+          "description": "How this entry combines with its siblings. Defaults to the enclosing group's logic.",
+          "enum": ["and", "or"]
+        },
+        "text": {
+          "description": "Per-condition copy, overriding the enclosing text when this entry is the one that matched."
+        },
+        "when": {
+          "description": "Gate: this entry only counts while the nested condition holds.",
+          "$ref": "#/$defs/condition"
+        }
+      },
+      "anyOf": [
+        { "required": ["values"] },
+        { "required": ["value"] },
+        { "required": ["except"] }
+      ]
+    },
+
+    "conditionList": {
+      "anyOf": [
+        { "$ref": "#/$defs/condition" },
+        { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/condition" } }
+      ]
+    },
+
+    "conditional": {
+      "description": "A literal value, or a value chosen by conditions. Used by min/max/pattern/required/label.",
+      "anyOf": [
+        { "$ref": "#/$defs/conditionList" },
+        { "type": ["string", "number", "boolean", "null"] }
+      ]
+    },
+
+    "conditionalText": {
+      "description": "Copy that can change with the form state: a literal string, a condition list, or a default plus condition overrides.",
+      "anyOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
+          "properties": {
+            "text": { "type": "string" },
+            "depends": { "$ref": "#/$defs/conditionList" },
+            "markdown": { "type": "boolean" }
+          }
+        },
+        { "$ref": "#/$defs/conditionList" }
+      ]
+    },
+
+    "label": {
+      "description": "Field label, plus the optional ⓘ link beside it. _includes/form/label.html reads exactly: depends, text, markdown, informer, icon. A plain string is the shorthand for {text}.",
+      "anyOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text"],
+          "properties": {
+            "text": {
+              "anyOf": [{ "type": "string" }, { "$ref": "#/$defs/conditionList" }]
+            },
+            "markdown": { "type": "boolean" },
+            "depends": {
+              "description": "When present the template renders JS-resolved copy instead of `text`, so the label can change with the form state.",
+              "$ref": "#/$defs/conditionList"
+            },
+            "informer": {
+              "description": "Target of the ⓘ link, shown when set. Read unescaped into an href.",
+              "type": "string"
+            },
+            "icon": {
+              "description": "Glyph for that link. The template defaults it to ⓘ.",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+
+    "messages": {
+      "description": "Per-state user-facing copy. Overrides settings.feedback for this field.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "description": "DEAD KEY. add-property.yml:995 sets it, but no renderer reads validation.message - the fallback is the field-level `message` key instead. Kept here so existing configs validate; delete it when touching that field."
+        },
+        "valid": { "type": "string" },
+        "invalid": { "type": "string" },
+        "required": { "$ref": "#/$defs/conditionalText" },
+        "pattern": { "$ref": "#/$defs/conditionalText" },
+        "email": {
+          "description": "Read by the email format check, alongside settings.feedback.email.",
+          "$ref": "#/$defs/conditionalText"
+        },
+        "compareMessage": {
+          "description": "Fallback when a validation.compare rule carries no message of its own.",
+          "type": "string"
+        },
+        "minlength": { "$ref": "#/$defs/bound" },
+        "maxlength": { "$ref": "#/$defs/bound" },
+        "min": { "$ref": "#/$defs/conditionalText" },
+        "max": { "$ref": "#/$defs/conditionalText" },
+        "minFiles": {
+          "description": "File field: message when fewer files were picked than file.minFiles. Supports {min}.",
+          "$ref": "#/$defs/conditionalText"
+        },
+        "maxFiles": {
+          "description": "File field: message when more files were picked than file.maxFiles. Supports {max}.",
+          "$ref": "#/$defs/conditionalText"
+        },
+        "maxSize": {
+          "description": "File field: message when a file is over file.maxSize. Supports {limit}.",
+          "$ref": "#/$defs/conditionalText"
+        },
+        "accept": { "type": "string" },
+        "compare": {
+          "description": "Cross-field rules. A `field` list means the sum of those fields.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["field", "operator"],
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "anyOf": [
+                  { "type": "string" },
+                  { "type": "array", "minItems": 1, "items": { "type": "string" } }
+                ]
+              },
+              "operator": {
+                "description": "These six are the ones form-engine.js implements; anything else fails the rule. `===`/`!==` are deliberately absent - the legacy switch has no branch for them, so they would block every value.",
+                "enum": ["<", "<=", ">", ">=", "==", "!="]
+              },
+              "message": {
+                "description": "Optional. Falls back to validation.compareMessage, then settings.feedback.compare.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "dnscheck": {
+          "type": "object",
+          "required": ["message"],
+          "additionalProperties": false,
+          "properties": {
+            "value": { "type": "boolean" },
+            "message": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "settings": {
+      "description": "Form-wide defaults. Every key is optional so the same schema fits a full page form and a modal.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "class": { "type": "string" },
+        "pattern": { "type": "string" },
+        "patternMessage": { "type": "string" },
+        "submit": { "$ref": "#/$defs/submit" },
+        "feedback": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "valid": { "type": "string" },
+            "invalid": { "type": "string" },
+            "pattern": { "type": "string" },
+            "email": {
+              "description": "Form wide copy for a malformed email address.",
+              "type": "string"
+            },
+            "compare": {
+              "description": "Form wide copy for a failed validation.compare rule.",
+              "type": "string"
+            }
+          }
+        },
+        "validation": {
+          "description": "Per-key defaults for the whole form, read as settings.validation[defKey] by getValidationMsg. Empty in current configs, but the legacy engine reads it, so a config written there has to keep working.",
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "required": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "marker": { "type": "string" },
+            "tooltip": { "type": "string" },
+            "message": { "type": "string" },
+            "class": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "submit": {
+      "description": "Where the collected values go. The engine never hard-codes this.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": { "type": "string" },
+        "method": { "enum": ["POST", "PUT", "PATCH"] },
+        "endpoint": { "type": "string" },
+        "captcha": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "widget": { "type": "string" },
+            "action": { "type": "string" },
+            "token": { "type": "string" },
+            "sitekey": { "type": "string" }
+          }
+        },
+        "success": { "type": "string" },
+        "error": { "type": "string" },
+        "encoding": {
+          "description": "How the payload leaves the browser. Defaults to json; multipart is picked automatically when the form has file fields.",
+          "enum": ["json", "multipart"]
+        },
+        "response": {
+          "description": "How the worker's reply is read back. Defaults to success.",
+          "enum": ["success", "errors"]
+        },
+        "errors": {
+          "description": "Worker code -> user copy. Overrides the engine's built-in map, so a form can carry its own messages in its own file.",
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+
+    "behavior": {
+      "description": "How the runtime presents the form. `mode: page` runs the wizard chrome (the default); `mode: modal` runs the modal life-cycle (captcha on shown, reset on show, JSON payload).",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": { "enum": ["page", "modal"] },
+        "modal": {
+          "description": "CSS selector of the modal element the form lives in (modal mode).",
+          "type": "string"
+        },
+        "seed": {
+          "description": "Id of the JSON island holding page values to seed the hidden fields (modal mode).",
+          "type": "string"
+        },
+        "success": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hide": { "type": "string" },
+            "show": { "type": "string" }
+          }
+        },
+        "reset": { "type": "boolean" }
+      }
+    },
+
+    "step": {
+      "type": "object",
+      "required": ["id", "rows"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "title": { "type": "string" },
+        "class": { "type": "string" },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/row" }
+        }
+      }
+    },
+
+    "row": {
+      "description": "Either a plain field row or a column split; both shapes exist in the current configs.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "class": { "type": "string" },
+        "auto": {
+          "description": "Distribute the visible fields across breakpoints instead of honouring each field's `col`.",
+          "type": "boolean"
+        },
+        "cols": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/col" }
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/field" }
+        }
+      },
+      "anyOf": [{ "required": ["cols"] }, { "required": ["fields"] }]
+    },
+
+    "col": {
+      "type": "object",
+      "required": ["rows"],
+      "additionalProperties": false,
+      "properties": {
+        "class": { "type": "string" },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/row" }
+        }
+      }
+    },
+
+    "field": {
+      "description": "Anything the renderer draws. `additionalProperties` is open on purpose: field keys are the long tail of the DSL and grow per widget. `--strict` reports keys the renderer has never heard of.",
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "description": "Submission key. Must be unique across the whole form.",
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "type": {
+          "description": "Widget family. The renderer's vocabulary, not just what today's configs use.",
+          "enum": [
+            "text",
+            "tel",
+            "email",
+            "number",
+            "textarea",
+            "select",
+            "radio",
+            "checkbox",
+            "checkbox_group",
+            "autocomplete",
+            "location",
+            "region",
+            "file",
+            "widgets",
+            "heading",
+            "paragraph",
+            "list",
+            "alert",
+            "badge",
+            "image",
+            "raw",
+            "hidden"
+          ]
+        },
+        "col": { "type": "string" },
+        "class": { "type": "string" },
+        "label": { "$ref": "#/$defs/label" },
+        "helper": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "feedback": { "$ref": "#/$defs/messages" },
+        "validation": { "$ref": "#/$defs/messages" },
+        "required": {
+          "description": "True, or conditions under which the field becomes required. The conditional form is a v1 wart; v2 splits it into `required: true` plus `depends`.",
+          "$ref": "#/$defs/conditional"
+        },
+        "readonly": { "$ref": "#/$defs/conditional" },
+        "depends": { "$ref": "#/$defs/conditionList" },
+        "value": {
+          "description": "Default value drawn into the control. For type `hidden` these are set at runtime by the page glue (uid, property_url, ...), so the config usually leaves them empty.",
+          "type": ["object", "array", "string", "number", "boolean", "null"]
+        },
+        "html": {
+          "description": "Verbatim markup for `type: raw`. Trusted, like every config string in this DSL.",
+          "type": "string"
+        },
+        "spellcheck": { "type": "boolean" },
+        "options": { "type": "array" },
+        "min": { "$ref": "#/$defs/bound" },
+        "max": { "$ref": "#/$defs/bound" },
+        "minlength": { "$ref": "#/$defs/bound" },
+        "maxlength": { "$ref": "#/$defs/bound" },
+        "pattern": { "$ref": "#/$defs/conditionalText" },
+        "step": { "type": "string" },
+        "multiple": { "type": "boolean" },
+        "accept": { "type": "string" },
+        "autocomplete": { "type": "string" },
+        "autocapitalize": { "type": "string" },
+        "prepend": { "type": "string" },
+        "append": { "type": "object" },
+        "variant": { "enum": ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"] },
+        "widget": {
+          "description": "For type `widgets`: which component to mount.",
+          "enum": ["captcha", "location", "map", "price_info"]
+        },
+        "fields": {
+          "description": "Sub-fields of a composite widget such as the location cascade.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/subField" }
+        }
+      }
+    },
+
+    "subField": {
+      "description": "A child of a composite widget. `type` is optional: the location cascade renders each level as a search input when the option count exceeds `threshold`, otherwise as a select. That is what `mode` picks between.",
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "type": { "type": "string" },
+        "parent": {
+          "description": "Name of the sibling sub-field this one filters by. `null` at the top of the cascade.",
+          "type": ["string", "null"]
+        },
+        "children": { "type": "string" },
+        "mode": { "enum": ["auto", "search", "select"] },
+        "threshold": { "type": "number" },
+        "minChars": { "type": "number" },
+        "maxResults": { "type": "number" }
+      }
+    },
+
+    "bound": {
+      "description": "A numeric limit, or limit-plus-message that varies with the form state.",
+      "anyOf": [
+        { "$ref": "#/$defs/conditionalText" },
+        { "type": ["number", "boolean", "null"] }
+      ]
+    },
+
+    "theme": {
+      "description": "Which CSS vocabulary the renderer emits. The site still has to load the matching stylesheet (Bootstrap 4 or Tailwind). Defaults to bootstrap4 when omitted.",
+      "enum": ["bootstrap4", "tailwind"]
+    },
+
+    "chrome": {
+      "description": "Wizard chrome copy. Optional: a site adapter supplies defaults, a config overrides per form. Kept here so a form can be fully described by one file.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "previous": { "type": "string" },
+        "next": { "type": "string" },
+        "submit": { "type": "string" },
+        "sending": { "type": "string" },
+        "successTitle": { "type": "string" },
+        "successText": { "type": "string" },
+        "errorTitle": { "type": "string" },
+        "errorCode": { "type": "string" },
+        "retry": { "type": "string" },
+        "close": { "type": "string" }
+      }
+    },
+
+    "rates": {
+      "description": "Currency rates the price widgets read. Optional: a site adapter supplies defaults, a config overrides per form.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "usd": { "type": "number" },
+        "eur": { "type": "number" },
+        "nbu": { "type": "number" }
+      }
+    },
+
+    "captcha": {
+      "description": "Cloudflare Turnstile settings, read when the config uses a captcha widget. Optional: a site adapter supplies defaults.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "sitekey": { "type": "string" },
+        "language": { "type": "string" },
+        "retryInterval": { "type": "number" },
+        "maxRetries": { "type": "number" },
+        "localHosts": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "assets": {
+      "description": "Where the baked page finds its scripts and stylesheets. Optional: the site adapter supplies the defaults. Paths are read from the repository root; URLs are used as-is.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "base": { "type": "string" },
+        "script": { "type": "string" },
+        "captchaScript": { "type": "string" },
+        "style": { "type": "string" },
+        "leafletCss": { "type": "string" },
+        "leafletJs": { "type": "string" }
+      }
+    }
+  }
+}

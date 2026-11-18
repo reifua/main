@@ -15,8 +15,39 @@ module.exports = (config) => {
   config.addPassthroughCopy({ 'src/posts/img/**/*': 'assets/img/' });
 
   config.addPassthroughCopy('src/assets/svg/');
+  config.addPassthroughCopy('src/assets/data/');
 
-  config.addWatchTarget("src/assets/js/");
+  // Bootstrap 4 stylesheet for the one page that renders `theme: bootstrap4`
+  // (src/new.njk). The engine skin ships inline with the baked fragment; the
+  // grid, form-control and component look comes from this file.
+  config.addPassthroughCopy('src/assets/vendor/bootstrap4.css');
+
+  // Leaflet marker/layer sprites. leaflet.js and leaflet.css are inlined into
+  // the baked form fragment (see @realtyua/form-engine eleventy adapter), but
+  // the CSS references url(images/...) and doInitMap sets L.Icon.Default.imagePath
+  // to /assets/css/images/, so the PNGs have to ship as static files.
+  config.addPassthroughCopy('src/assets/css/images/**/*');
+
+  // FormEngine runtime from npm package: ES modules loaded directly by the baked
+  // page via <script type="module">. The single entry is assets/js/form-engine/app.js.
+  config.addPassthroughCopy({
+    'node_modules/@realtyua/form-engine/runtime': 'assets/js/form-engine',
+  });
+
+  config.addWatchTarget('src/assets/js/');
+
+  // Bake forms/<name>.yml into fragments and expose them as {% formApp "name" %}.
+  const path = require('path');
+  const site = require('./src/_data/site.js');
+  const { default: formEngine } = require('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
+  // Pass site/dirs/engineDir so the async adapter has no await points and registers
+  // shortcodes/hooks synchronously (Eleventy 1.x does not support async config).
+  formEngine(config, {
+    site,
+    siteDir: __dirname,
+    dataDir: path.join(__dirname, 'src', '_data'),
+    engineDir: path.join(__dirname, 'node_modules', '@realtyua', 'form-engine', 'runtime'),
+  });
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');
@@ -69,6 +100,14 @@ module.exports = (config) => {
       'Ч':'ch','Ш':'sh','Щ':'shch','Ь':'','Ю':'iu','Я':'ia'
     };
     return value.replace(/['«»,.—]/g, '').replace(/\s+/g, '-').split('').map(c => map[c] || c).join('').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
+  });
+
+  // JSON stringify with </script> escaping for safe use in <script type="application/json"> islands.
+  config.addNunjucksFilter("jsonify", function(value) {
+    return JSON.stringify(value)
+      .replace(/</g, '\\u003c')
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029');
   });
 
   config.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
