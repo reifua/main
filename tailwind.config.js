@@ -10,8 +10,11 @@ module.exports = {
     content: [
       './src/**/*.njk',
       './src/**/*.svg',
-      './src/assets/js/form-engine/**/*.js',
-      './src/assets/js/form-engine/themes/tailwind.js',
+      // The engine ships from npm (PUB-14); the Tailwind theme composes
+      // utilities at runtime and spells them out in its SAFELIST, so purge has
+      // to scan the installed package (the old ./src/assets/js/form-engine copy
+      // no longer exists).
+      './node_modules/@realtyua/form-engine/runtime/**/*.js',
       './test/**/*.mjs'
     ],
     layers: ['components', 'utilities'],
