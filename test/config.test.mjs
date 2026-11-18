@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { buildModel } from '../src/assets/js/form-engine/model.js';
+import { buildModel } from '@realtyua/form-engine/runtime/model.js';
 import { loadYaml } from '../_form-engine/tools/yaml.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');

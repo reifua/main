@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-import { makeController } from '../src/assets/js/form-engine/controller.js';
+import { makeController } from '@realtyua/form-engine/runtime/controller.js';
 import {
   NOTIFY_ERROR_TEXTS,
   CAPTCHA_REQUIRED_TEXT,
@@ -16,8 +16,8 @@ import {
   notifyErrorText,
   captchaBlocked,
   counterRemaining,
-} from '../src/assets/js/form-engine/data.js';
-import { buildJsonPayload as buildPayload } from '../src/assets/js/form-engine/submit.js';
+} from '@realtyua/form-engine/runtime/data.js';
+import { buildJsonPayload as buildPayload } from '@realtyua/form-engine/runtime/submit.js';
 
 const config = loadYaml(join(ROOT, 'src', '_data', 'notify.yml'));
 

@@ -25,8 +25,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadYaml } from './yaml.mjs';
-import { FormRender } from '../../src/assets/js/form-engine/render.js';
-import { inlineMarkdown } from '../../src/assets/js/form-engine/html.js';
+import { FormRender } from '@realtyua/form-engine/runtime/render.js';
+import { inlineMarkdown } from '@realtyua/form-engine/runtime/html.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CONFIG_PATH = join(ROOT, 'src', '_data', 'add-property.yml');

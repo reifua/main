@@ -42,10 +42,11 @@ function extractJsonIsland(html, id) {
  * - remove data-endpoint values
  * - normalize ?v= tokens to ?v=TOKEN
  * - remove notify-page body (page-specific data)
- * - strip EOL differences
+ * - normalize EOL differences
  */
 function normalizeParity(html) {
   return html
+    .replace(/\r\n/g, '\n')
     .replace(/data-endpoint="[^"]*"/g, 'data-endpoint="ENDPOINT"')
     .replace(/\?v=[0-9a-f]+/g, '?v=TOKEN')
     .replace(/<script id="notify-page" type="application\/json">[\s\S]*?<\/script>/g,
@@ -72,8 +73,8 @@ const { loadYaml: jekyllLoadYaml } = await import('file:///' + JEKYLL_ROOT + '/_
 const { loadSiteOpts: jekyllLoadSiteOpts } = await import('file:///' + JEKYLL_ROOT + '/_form-engine/tools/site-opts.mjs');
 const { renderPage: jekyllRender } = await import('file:///' + JEKYLL_ROOT + '/assets/js/form-engine/shell.js');
 
-// Load reifua's renderPage for fresh baking from the SAME config
-const { renderPage: reifuaRender } = await import('file:///' + ROOT + '/src/assets/js/form-engine/shell.js');
+// Load reifua's renderPage from the npm package for fresh baking from the SAME config
+const { renderPage: reifuaRender } = await import('@realtyua/form-engine/runtime/shell.js');
 
 async function testParity(name, jekyllConfig, reifuaOpts = {}) {
   // Bake fresh from the SAME config on both stacks

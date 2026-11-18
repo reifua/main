@@ -4,10 +4,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createRequire } from 'node:module';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const require = createRequire(import.meta.url);
 
 // Same detector the render suite uses: the Eleventy site has no Alpine, so the
 // baked page must carry hooks only.
@@ -15,16 +13,17 @@ const ALPINE = /\b(x-[a-z]+|@[a-z]+(\.[a-z0-9]+)*|:[a-z-]+)=/;
 
 const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 
-// Boot the real Eleventy adapter against a stub config so the test sees the
-// exact fragment the /new/ page ships, endpoint included.
+// Boot the Eleventy adapter from the npm package against a stub config so the
+// test sees the exact fragment the /new/ page ships, endpoint included.
 async function bake() {
-  const register = require('../lib/form-engine.js');
+  const { default: register } = await import('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
   const hooks = {};
   const shortcodes = {};
-  register({
+  await register({
     on: (event, fn) => { hooks[event] = fn; },
     addShortcode: (name, fn) => { shortcodes[name] = fn; },
     addWatchTarget: () => {},
+    globalData: {},
   });
   await hooks.beforeBuild();
   return shortcodes.formApp;

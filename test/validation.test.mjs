@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { evaluateDepends, getDataValue } from '../src/assets/js/form-engine/conditions.js';
-import { fieldError, isFieldRequired, validationMessage } from '../src/assets/js/form-engine/validation.js';
+import { evaluateDepends, getDataValue } from '@realtyua/form-engine/runtime/conditions.js';
+import { fieldError, isFieldRequired, validationMessage } from '@realtyua/form-engine/runtime/validation.js';
 
 function ctxOf({ data = {}, config = {}, hidden = [], files = {}, fileValid = {}, captcha = false, ...extra } = {}) {
   const ctx = {

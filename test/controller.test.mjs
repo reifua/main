@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { makeController } from '../src/assets/js/form-engine/controller.js';
+import { makeController } from '@realtyua/form-engine/runtime/controller.js';
 
 const config = {
   version: 1,

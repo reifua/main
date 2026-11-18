@@ -25,7 +25,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { FormRender } from '../../src/assets/js/form-engine/render.js';
+import { FormRender } from '@realtyua/form-engine/runtime/render.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const siteDir = process.argv[2] || join(ROOT, 'dist');
