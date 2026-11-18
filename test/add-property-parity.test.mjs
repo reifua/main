@@ -31,13 +31,13 @@ import {
   locationPreset,
   matchesValues,
   locationReadonly,
-} from '../src/assets/js/form-engine/data.js';
+} from '@realtyua/form-engine/runtime/data.js';
 import {
   buildPayload,
   toFormData,
   AP_ERROR_TEXTS,
   AP_ERROR_GENERIC,
-} from '../src/assets/js/form-engine/submit.js';
+} from '@realtyua/form-engine/runtime/submit.js';
 
 const WIDGET = { name: 'location_widget', type: 'widgets', widget: 'location', settings: { method: 'two' }, fields: [
   { name: 'region', children: 'regions' },

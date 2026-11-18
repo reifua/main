@@ -23,20 +23,31 @@ module.exports = (config) => {
   config.addPassthroughCopy('src/assets/vendor/bootstrap4.css');
 
   // Leaflet marker/layer sprites. leaflet.js and leaflet.css are inlined into
-  // the baked form fragment (see lib/form-engine.js), but the CSS references
-  // url(images/...) and doInitMap sets L.Icon.Default.imagePath to
-  // /assets/css/images/, so the PNGs have to ship as static files.
+  // the baked form fragment (see @realtyua/form-engine eleventy adapter), but
+  // the CSS references url(images/...) and doInitMap sets L.Icon.Default.imagePath
+  // to /assets/css/images/, so the PNGs have to ship as static files.
   config.addPassthroughCopy('src/assets/css/images/**/*');
 
-  // FormEngine runtime: ES modules loaded directly by the baked page via
-  // <script type="module">, so the directory layout has to survive as-is.
-  // The single entry is assets/js/form-engine/app.js.
-  config.addPassthroughCopy('src/assets/js/form-engine');
+  // FormEngine runtime from npm package: ES modules loaded directly by the baked
+  // page via <script type="module">. The single entry is assets/js/form-engine/app.js.
+  config.addPassthroughCopy({
+    'node_modules/@realtyua/form-engine/runtime': 'assets/js/form-engine',
+  });
 
-  config.addWatchTarget("src/assets/js/");
+  config.addWatchTarget('src/assets/js/');
 
   // Bake forms/<name>.yml into fragments and expose them as {% formApp "name" %}.
-  require('./lib/form-engine')(config);
+  const path = require('path');
+  const site = require('./src/_data/site.js');
+  const { default: formEngine } = require('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
+  // Pass site/dirs/engineDir so the async adapter has no await points and registers
+  // shortcodes/hooks synchronously (Eleventy 1.x does not support async config).
+  formEngine(config, {
+    site,
+    siteDir: __dirname,
+    dataDir: path.join(__dirname, 'src', '_data'),
+    engineDir: path.join(__dirname, 'node_modules', '@realtyua', 'form-engine', 'runtime'),
+  });
 
   config.addLayoutAlias('default', 'layouts/default.njk');
   config.addLayoutAlias('post', 'layouts/post.njk');

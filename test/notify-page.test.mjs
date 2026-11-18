@@ -4,36 +4,45 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createRequire } from 'node:module';
 import { loadYaml } from '../_form-engine/tools/yaml.mjs';
 import { parseHTML } from 'linkedom';
-import { boot } from '../src/assets/js/form-engine/app.js';
+import { boot } from '@realtyua/form-engine/runtime/app.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const require = createRequire(import.meta.url);
 
 const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 
-// Boot the real Eleventy adapter against a stub config.
+// Boot the Eleventy adapter from npm package against a stub config.
 async function bakeNotifyModal() {
-  const register = require('../lib/form-engine.js');
+  const { default: register } = await import('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
   const hooks = {};
   const shortcodes = {};
   const globalData = {};
-  register({
+  await register({
     on: (event, fn) => { hooks[event] = fn; },
     addShortcode: (name, fn) => { shortcodes[name] = fn; },
     addWatchTarget: () => {},
     globalData,
   });
   await hooks.beforeBuild();
-  // The notify modal partial is rendered in the layout, so we need to
-  // simulate the template rendering with the shortcodes.
-  // We'll call the shortcodes directly to get the config island and page JSON.
   const configIsland = shortcodes.notifyConfigIsland();
   const pageJson = shortcodes.notifyPageJson('test-uid', '/property/url/', 'test@example.com', 'Test Property');
   const version = shortcodes.formEngineVersion();
   return { configIsland, pageJson, version };
+}
+
+async function bakeFormApp(name) {
+  const { default: register } = await import('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
+  const hooks = {};
+  const shortcodes = {};
+  await register({
+    on: (event, fn) => { hooks[event] = fn; },
+    addShortcode: (name, fn) => { shortcodes[name] = fn; },
+    addWatchTarget: () => {},
+    globalData: {},
+  });
+  await hooks.beforeBuild();
+  return shortcodes.formApp(name);
 }
 
 test('notify modal partial exists with Bootstrap 4 markup', () => {
@@ -116,26 +125,6 @@ test('site data has notifyEndpoint', () => {
   assert.match(siteData, /notifyEndpoint:\s*['"]https:\/\/notify-worker\.sparkling-union-9e0a\.workers\.dev['"]/);
 });
 
-test('form-engine.js has notify endpoint in ENDPOINTS', () => {
-  const formEngine = read('lib/form-engine.js');
-  assert.match(formEngine, /'notify':\s*SITE\.notifyEndpoint/);
-});
-
-test('form-engine.js has notifyConfigIsland shortcode', () => {
-  const formEngine = read('lib/form-engine.js');
-  assert.match(formEngine, /notifyConfigIsland/);
-});
-
-test('form-engine.js has notifyPageJson shortcode', () => {
-  const formEngine = read('lib/form-engine.js');
-  assert.match(formEngine, /notifyPageJson/);
-});
-
-test('form-engine.js has formEngineVersion shortcode', () => {
-  const formEngine = read('lib/form-engine.js');
-  assert.match(formEngine, /formEngineVersion/);
-});
-
 test('notify modal config island carries the whole config file', async () => {
   const { configIsland } = await bakeNotifyModal();
   const config = JSON.parse(configIsland);
@@ -192,34 +181,14 @@ test('formEngineVersion shortcode returns version string', async () => {
 });
 
 test('Bootstrap 4 page (new) still works after notify changes', async () => {
-  const register = require('../lib/form-engine.js');
-  const hooks = {};
-  const shortcodes = {};
-  register({
-    on: (event, fn) => { hooks[event] = fn; },
-    addShortcode: (name, fn) => { shortcodes[name] = fn; },
-    addWatchTarget: () => {},
-    globalData: {},
-  });
-  await hooks.beforeBuild();
-  const html = shortcodes.formApp('add-property');
+  const html = await bakeFormApp('add-property');
   assert.match(html, /<form id="add-property-form"/);
   assert.match(html, /"theme":"bootstrap4"/);
   assert.match(html, /data-endpoint="https:\/\/add-property-worker\.sparkling-union-9e0a\.workers\.dev"/);
 });
 
 test('Tailwind page (demo) still works after notify changes', async () => {
-  const register = require('../lib/form-engine.js');
-  const hooks = {};
-  const shortcodes = {};
-  register({
-    on: (event, fn) => { hooks[event] = fn; },
-    addShortcode: (name, fn) => { shortcodes[name] = fn; },
-    addWatchTarget: () => {},
-    globalData: {},
-  });
-  await hooks.beforeBuild();
-  const html = shortcodes.formApp('demo');
+  const html = await bakeFormApp('demo');
   assert.match(html, /<form id="demo-form"/);
   assert.match(html, /"theme":"tailwind"/);
 });

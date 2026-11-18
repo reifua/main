@@ -8,7 +8,7 @@ import {
   matchesValueCondition,
   matchesValues,
   resolveConditionalText,
-} from '../src/assets/js/form-engine/conditions.js';
+} from '@realtyua/form-engine/runtime/conditions.js';
 
 const read = (data) => (path) => getDataValue(data, path);
 

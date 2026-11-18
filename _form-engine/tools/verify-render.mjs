@@ -80,20 +80,23 @@ export function minifyBakedHtml(html, root = ROOT, outputPath = 'index.html') {
 }
 
 /**
- * Boots the real Eleventy adapter against a stub config, exactly like
- * test/add-property-page.test.mjs and test/notify-page.test.mjs do.
+ * Boots the Eleventy adapter from the npm package against a stub config.
  */
 export async function bakeForms(root = ROOT) {
   const localRequire = createRequire(join(root, 'package.json'));
-  const register = localRequire(join(root, 'lib', 'form-engine.js'));
+  const { default: register } = await import('@realtyua/form-engine/adapters/eleventy/lib/form-engine.js');
   const hooks = {};
   const shortcodes = {};
   const globalData = {};
-  register({
+  await register({
     on: (event, fn) => { hooks[event] = fn; },
     addShortcode: (name, fn) => { shortcodes[name] = fn; },
     addWatchTarget: () => {},
     globalData,
+  }, {
+    siteDir: root,
+    dataDir: join(root, 'src', '_data'),
+    engineDir: join(root, 'node_modules', '@realtyua', 'form-engine', 'runtime'),
   });
   if (typeof hooks.beforeBuild !== 'function') {
     throw new Error('the adapter registered no beforeBuild hook');

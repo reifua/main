@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 
 import { parseHTML } from 'linkedom';
 
-import { FormRender } from '../src/assets/js/form-engine/render.js';
-import { buildData } from '../src/assets/js/form-engine/data.js';
-import { bootPage as wireFormPageImpl } from '../src/assets/js/form-engine/page-form.js';
+import { FormRender } from '@realtyua/form-engine/runtime/render.js';
+import { buildData } from '@realtyua/form-engine/runtime/data.js';
+import { bootPage as wireFormPageImpl } from '@realtyua/form-engine/runtime/page-form.js';
 
 // Stub the captcha watcher's timer seam so no real interval outlives the test.
 const wireFormPage = (document, opts = {}) => wireFormPageImpl(document, { setInterval: () => 0, ...opts });

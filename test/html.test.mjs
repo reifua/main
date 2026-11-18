@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { attr, classes, escapeHtml, inlineMarkdown, link, safeHref } from '../src/assets/js/form-engine/html.js';
+import { attr, classes, escapeHtml, inlineMarkdown, link, safeHref } from '@realtyua/form-engine/runtime/html.js';
 
 const XSS = [
   '<script>alert(1)</script>',

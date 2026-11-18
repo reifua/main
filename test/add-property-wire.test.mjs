@@ -6,8 +6,8 @@ import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 
-import { bootPage as wireAddPropertyImpl } from '../src/assets/js/form-engine/page-form.js';
-import { renderPage } from '../src/assets/js/form-engine/shell.js';
+import { bootPage as wireAddPropertyImpl } from '@realtyua/form-engine/runtime/page-form.js';
+import { renderPage } from '@realtyua/form-engine/runtime/shell.js';
 import { loadYaml } from '../_form-engine/tools/yaml.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');

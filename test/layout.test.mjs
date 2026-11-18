@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { autoCol, colFor, parseGridClasses } from '../src/assets/js/form-engine/layout.js';
-import { buildModel } from '../src/assets/js/form-engine/model.js';
+import { autoCol, colFor, parseGridClasses } from '@realtyua/form-engine/runtime/layout.js';
+import { buildModel } from '@realtyua/form-engine/runtime/model.js';
 
 /** Builds the layout context for one row of fields. */
 function contextOf(fields, { auto = true, hidden = [] } = {}) {

@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-import { FormRender } from '../src/assets/js/form-engine/render.js';
+import { FormRender } from '@realtyua/form-engine/runtime/render.js';
 
 // The page glue injects the endpoint into the config; the YAML itself stays
 // free of it so the same file runs on other hosts.
