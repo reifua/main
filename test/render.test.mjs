@@ -374,7 +374,7 @@ test('the map widget renders the picker shell with the partial CSS', () => {
   assert.match(html, /\.map-picker-responsive \{ height: 280px; \}/);
   assert.match(html, /<div class="mb-2" id="label_map_widget">Мапа<\/div>/);
   assert.match(html, /<div class="map-marker-info" hidden>/);
-  assert.match(html, /<div id="map-picker" class="border rounded map-picker-responsive" role="application" aria-labelledby="label_map_widget"><\/div>/);
+  assert.match(html, /<div id="map_widget-picker" class="border rounded map-picker-responsive" role="application" aria-labelledby="label_map_widget"><\/div>/);
   assert.match(html, /<span data-map-coords="map_widget"/);
 });
 

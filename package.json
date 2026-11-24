@@ -47,7 +47,7 @@
 	},
 	"dependencies": {
 		"@11ty/eleventy-upgrade-help": "^1.0.1",
-		"@realtyua/form-engine": "^1.0.4",
+		"@realtyua/form-engine": "^1.0.10",
 		"@tailwindcss/forms": "^0.2.1",
 		"js-yaml": "^4.1.0"
 	}

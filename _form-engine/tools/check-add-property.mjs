@@ -240,6 +240,19 @@ const plain = [];
 const contentTypes = new Set(['alert', 'badge', 'heading', 'image', 'list', 'paragraph', 'raw']);
 everyField(config, (field) => { if (field.name) plain.push(field); });
 
+// 1.0.10 derives widget ids from the config (MOD-17/18); the frozen pre-engine
+// baseline only knows the old fixed ids, so whitelist the derived ones.
+const derivedIds = new Set();
+for (const field of plain) {
+  if (field.type !== 'widgets') continue;
+  derivedIds.add(`label_${field.name}`);
+  const base = field.element_id || field.name;
+  if (field.widget === 'captcha') derivedIds.add(`${base}-widget`);
+  if (field.widget === 'map') derivedIds.add(`${base || 'map'}-picker`);
+}
+const mapWidget = plain.find((field) => field.type === 'widgets' && field.widget === 'map') || {};
+const mapPickerId = `${mapWidget.element_id || mapWidget.name || 'map'}-picker`;
+
 for (const field of plain) {
   if (contentTypes.has(field.type)) continue;
   check(html.includes(`"${field.name}"`), `field hook present: ${field.name}`);
@@ -272,7 +285,7 @@ check(/data-captcha-retry="captcha">Спробувати ще раз/.test(html)
 check(/<span data-error="captcha"><\/span>/.test(html), 'captcha error hook');
 
 check(/<div class="mb-2" id="label_map_widget">/.test(html), 'map label block');
-check(/<div id="map-picker" class="border rounded map-picker-responsive" role="application" aria-labelledby="label_map_widget"><\/div>/.test(html), 'map picker');
+check(new RegExp(`<div id="${mapPickerId}" class="border rounded map-picker-responsive" role="application" aria-labelledby="label_map_widget"></div>`).test(html), 'map picker');
 check(/\.map-picker-responsive \{ height: 280px; \}/.test(html), 'map partial CSS');
 check(/data-map-coords="map_widget"/.test(html), 'map coords hook');
 
@@ -294,7 +307,7 @@ else check(false, 'no Alpine in engine output');
 // ------------------------------------------------------- id contract
 const engineIds = collectIds(html);
 const baselineIds = collectIds(baselineSlice);
-const orphan = [...engineIds].filter((id) => !baselineIds.has(id));
+const orphan = [...engineIds].filter((id) => !baselineIds.has(id) && !derivedIds.has(id));
 check(orphan.length === 0, `engine ids all existed in the old page${orphan.length ? `: ${orphan.join(', ')}` : ''}`);
 
 for (const field of plain) {
