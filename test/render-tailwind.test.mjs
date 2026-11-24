@@ -296,7 +296,7 @@ test('the map and price_info widgets keep their shells tailwind-styled', () => {
   ]);
 
   assert.match(mapHtml, /\.map-picker-responsive \{ height: 280px; \}/);
-  assert.match(mapHtml, /<div id="map-picker" class="map-picker-responsive relative w-full rounded-md border border-gray-300"/);
+  assert.match(mapHtml, /<div id="map_widget-picker" class="map-picker-responsive relative w-full rounded-md border border-gray-300"/);
   assert.match(mapHtml, /<span data-map-coords="map_widget"/);
   assert.match(mapHtml, /class="map-marker-info" hidden/);
 

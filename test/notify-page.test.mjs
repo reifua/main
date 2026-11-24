@@ -159,7 +159,7 @@ test('the notify island boots through the modal glue with the notify form contra
 
   const handles = boot(window.document);
   assert.equal(handles.length, 1, 'the notify island boots exactly one form');
-  assert.ok(handles[0].reset, 'behavior.mode: modal routes the boot through bootModal');
+  assert.equal(handles[0].mode, 'modal', 'behavior.mode: modal routes the boot through bootModal');
   const form = window.document.querySelector('#notify-app form');
   assert.ok(form, 'the form mounts into #notify-app');
   assert.equal(form.getAttribute('id'), 'notify-form');
