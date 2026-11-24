@@ -17,6 +17,7 @@ settings:
     message: Будь ласка, заповніть це поле
     class: text-danger small font-weight-bold
   pattern: ^[а-я'А-ЯієїґІЄЇҐ0-9\s.,:;!?\(\)""№+\/–—\-]+$
+  mapIconPath: /assets/css/images/
 
 steps:
   - id: start
