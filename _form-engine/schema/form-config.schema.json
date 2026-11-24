@@ -212,6 +212,10 @@
         "pattern": { "type": "string" },
         "patternMessage": { "type": "string" },
         "submit": { "$ref": "#/$defs/submit" },
+        "mapIconPath": {
+          "description": "Base path for Leaflet marker icons (L.Icon.Default.imagePath). Overridable per map widget via its iconPath; the runtime never hard-codes an assets path.",
+          "type": "string"
+        },
         "feedback": {
           "type": "object",
           "additionalProperties": false,
